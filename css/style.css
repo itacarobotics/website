@@ -975,11 +975,12 @@ blockquote {
 /* --------- 6.4 Gallery ---------- */
 
 #gallery img {
-    max-height: 300px;
+    width: 100%;
+    max-width: 300px;
 }
 
 #gallery [class*='col-'] {
-    padding: 0;
+    padding: 5;
 }
 
 #gallery a {

@@ -75,12 +75,12 @@
                         <ul class="social-icons">
                             <li>
                                 <a target="_blank" title="YouTube" href="https://www.youtube.com/@itacarobotics">
-                                    <i class="fa fa-youtube-play fa-1x"></i><span>YouTube</span>
+                                    <i class="fa fa-youtube-play fa-2x"></i><span>YouTube</span>
                                 </a>
                             </li>
                             <li>
                                 <a target="_blank" title="GitHub" href="http://github.com/itacarobotics">
-                                    <i class="fa fa-github fa-1x"></i><span>GitHub</span>
+                                    <i class="fa fa-github fa-2x"></i><span>GitHub</span>
                                 </a>
                             </li>
                         </ul>
@@ -118,7 +118,7 @@
 
                 <div class="section-heading">
                     <h1>LEARN<br> MAKE<br> REPEAT</h1>
-                    <h2>Itaca robotics is a project started in 2024 from my passion for building stuff.</h2>
+                    <h2>Started in 2024 from my passion for building stuff.</h2>
                 </div>
 
             </div>
@@ -138,7 +138,7 @@
                     <div class="section-heading">
                         <h3>ABOUT</h3>
                         <h2 class="section-title">Who I am</h2>
-                        <p class="section-subtitle">My name is Federico Osti, 23 years old from Italy.</p>
+                        <p>My name is Federico Osti, 23 years old from Italy. Robotics enthusiast since <em>LEGO Mindstorms NXT</em> came out.</p>
                     </div>
                 </div>
 
@@ -167,7 +167,7 @@
                         <!--Icon Block Description-->
                         <div class="icon-block-description">
                             <h4>EXPERIENCE</h4>
-                            <p>Internship in the robotics department at CERN. Currently working at MVTec Software on 6D pose estimation from single RGB image using deep learning.</p>
+                            <p>Internship in the robotics department at CERN. Currently working at MVTec Software GmbH on deep learning based 6D pose estimation from single RGB image.</p>
                         </div>
                     </div>
                     <!--End of Icon Block-->
@@ -188,7 +188,19 @@
                     <div class="section-heading">
                         <h3>PROJECT</h3>
                         <h2 class="section-title">Metis</h2>
-                        <p class="section-subtitle">Metis is a ...</p>
+                        <p style="text-align: justify;">
+                        
+                            Metis is a delta robot developed entirely from scratch, serving as a stable platform 
+                            for testing and deploying machine vision algorithms. <br>
+                            In addition to its three degrees of freedom for positioning, it features an electromagnetic 
+                            gripper for handling metallic objects. <br>
+                            The software stack is built on the ROS 2 framework, with low-level motor control handled 
+                            via micro-ROS—a ROS port for microcontrollers. <br>
+                            Trajectory planning is based on quintic polynomial profiles for smooth motion, and inverse 
+                            kinematics are solved as an optimization problem using the Gauss-Newton algorithm. <br> 
+                            Check out the YouTube channel for demo videos!
+
+                        </p>
                     </div>
                 </div>
 
@@ -228,7 +240,16 @@
                     <div class="section-heading">
                         <h3>PROJECT</h3>
                         <h2 class="section-title">Metis 2</h2>
-                        <p class="section-subtitle">Metis 2 is a ...</p>
+                        <p style="text-align: justify;">
+                            
+                            Metis 2 is a smaller, more compact robot, enhanced with an additional degree of freedom 
+                            along the vertical axis, enabling rotation of grasped objects. <br>
+                            Its software is fully developed at a low level for maximum efficiency, running on an STM32 
+                            microcontroller and structured as a large finite state machine. <br>
+                            Although promising, the project was soon set aside to pursue more exciting work in deep 
+                            learning for machine vision and deep reinforcement learning.
+                        
+                        </p>
                     </div>
                 </div>
 
@@ -262,35 +283,36 @@
 
             <div class="row clearfix">
                 
+                
+                <div class="col-61" style="display: flex; justify-content: center; align-items: center; height: 500px;">
+                    <!--Gallery-->
+                    <img src="images/projects-images/itacaOS/sketch.png" alt="Landing Page"
+                        style="width: 100%; height: auto;" />
+                    <!--End of Gallery-->
+                </div>
+
+            
                 <div class="col-38" style="float: left;">
                     <div class="section-heading">
-                        <h3>PROJECT</h3>
+                        <h3>PROJECT (UNDER DEVELOPMENT)</h3>
                         <h2 class="section-title">itacaOS</h2>
-                        <p class="section-subtitle">itacaOS is ...</p>
+                        <p style="text-align: justify;">
+                            
+                            Most of the effort, while developing embedded systems firmware, goes into the code 
+                            implementation of the code architecture. <br>
+                            itacaOS is an automatic code generator that allows developers to focus on high-level 
+                            design instead of low-level implementation. <br>
+                            By converting a flowchart created in draw.io into a C-language project for STM32 
+                            microcontrollers, itacaOS reduces repetitive tasks and introduces a uniform code-style. <br>
+                            The generated code is built on CMSIS-RTOSv2, supporting stable RTOS kernels such as 
+                            FreeRTOS and Zephyr. It handles task scheduling, inter-process communication, 
+                            and memory queues, leaving developers to focus solely on implementing the core 
+                            logic within the generated function templates.
+                            
+                        </p>
                     </div>
                 </div>
 
-                <div class="col-61">
-                    <!--Gallery-->
-                    <!-- <aside id="gallery" class="row text-center scrollto clearfix" data-featherlight-gallery
-                            data-featherlight-filter="a">
-
-                            <a href="images/projects-images/metis2/metis2-1.jpg" data-featherlight="image" class="col-3 wow fadeIn"
-                            data-wow-delay="0.3s"><img src="images/projects-images/metis2/metis2-1.jpg" alt="Landing Page"/></a>
-                            <a href="images/projects-images/metis2/metis2-2.jpg" data-featherlight="image" class="col-3 wow fadeIn"
-                            data-wow-delay="0.3s"><img src="images/projects-images/metis2/metis2-2.jpg" alt="Landing Page"/></a>
-                            <a href="images/projects-images/metis2/metis2-3.jpg" data-featherlight="image" class="col-3 wow fadeIn"
-                            data-wow-delay="0.3s"><img src="images/projects-images/metis2/metis2-3.jpg" alt="Landing Page"/></a>
-                            <a href="images/projects-images/metis2/metis2-4.jpg" data-featherlight="image" class="col-3 wow fadeIn"
-                            data-wow-delay="0.3s"><img src="images/projects-images/metis2/metis2-4.jpg" alt="Landing Page"/></a>
-                            <a href="images/projects-images/metis2/metis2-5.jpg" data-featherlight="image" class="col-3 wow fadeIn"
-                            data-wow-delay="0.3s"><img src="images/projects-images/metis2/metis2-5.jpg" alt="Landing Page"/></a>
-                            <a href="images/projects-images/metis2/metis2-6.jpg" data-featherlight="image" class="col-3 wow fadeIn"
-                            data-wow-delay="0.3s"><img src="images/projects-images/metis2/metis2-6.jpg" alt="Landing Page"/></a>
-                    </aside> -->
-                    <!--End of Gallery-->
-                </div>
-                
             </div>
         </section>
         <!--End of Project 2-->

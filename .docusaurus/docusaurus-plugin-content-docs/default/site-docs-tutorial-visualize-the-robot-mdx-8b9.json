@@ -1,0 +1,26 @@
+{
+  "id": "tutorial/visualize-the-robot",
+  "title": "Visualize the robot",
+  "description": "",
+  "source": "@site/docs/tutorial/visualize-the-robot.mdx",
+  "sourceDirName": "tutorial",
+  "slug": "/tutorial/visualize-the-robot",
+  "permalink": "/docs/tutorial/visualize-the-robot",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Getting started",
+    "permalink": "/docs/tutorial/getting-started"
+  },
+  "next": {
+    "title": "Make it move",
+    "permalink": "/docs/tutorial/make-it-move"
+  }
+}

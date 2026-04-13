@@ -1,0 +1,83 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "concepts/Moveit2",
+              "path": "/docs/concepts/Moveit2",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "concepts/ros2-control",
+              "path": "/docs/concepts/ros2-control",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "concepts/Safety",
+              "path": "/docs/concepts/Safety",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "concepts/USB-to-CAN",
+              "path": "/docs/concepts/USB-to-CAN",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/docs/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial/getting-started",
+              "path": "/docs/tutorial/getting-started",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial/make-it-move",
+              "path": "/docs/tutorial/make-it-move",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial/plan-it-from-cpp",
+              "path": "/docs/tutorial/plan-it-from-cpp",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial/visualize-the-robot",
+              "path": "/docs/tutorial/visualize-the-robot",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/tutorial",
+              "path": "/docs/category/tutorial",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/concepts",
+              "path": "/docs/category/concepts",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/docs/intro",
+                "label": "intro"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

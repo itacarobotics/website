@@ -1,0 +1,26 @@
+{
+  "id": "tutorial-basics/make it move",
+  "title": "Create a Blog Post",
+  "description": "Docusaurus creates a page for each blog post, but also a blog index page, a tag system, an RSS feed...",
+  "source": "@site/docs/tutorial-basics/make it move.mdx",
+  "sourceDirName": "tutorial-basics",
+  "slug": "/tutorial-basics/make it move",
+  "permalink": "/docs/tutorial-basics/make it move",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Visualize the robot",
+    "permalink": "/docs/tutorial-basics/visualize-the-robot"
+  },
+  "next": {
+    "title": "Markdown Features",
+    "permalink": "/docs/tutorial-basics/markdown-features"
+  }
+}

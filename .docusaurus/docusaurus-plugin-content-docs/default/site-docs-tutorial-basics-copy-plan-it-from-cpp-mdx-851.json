@@ -1,0 +1,22 @@
+{
+  "id": "tutorial-basics copy/plan-it-from-cpp",
+  "title": "Plan the movements",
+  "description": "Docusaurus supports Markdown and a few additional features.",
+  "source": "@site/docs/tutorial-basics copy/plan-it-from-cpp.mdx",
+  "sourceDirName": "tutorial-basics copy",
+  "slug": "/tutorial-basics copy/plan-it-from-cpp",
+  "permalink": "/docs/tutorial-basics copy/plan-it-from-cpp",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Make it move",
+    "permalink": "/docs/tutorial-basics copy/make-it-move"
+  }
+}

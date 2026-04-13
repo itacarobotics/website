@@ -1,0 +1,26 @@
+{
+  "id": "concepts/make-it-move",
+  "title": "Make it move",
+  "description": "Docusaurus creates a page for each blog post, but also a blog index page, a tag system, an RSS feed...",
+  "source": "@site/docs/concepts/make-it-move.mdx",
+  "sourceDirName": "concepts",
+  "slug": "/concepts/make-it-move",
+  "permalink": "/docs/concepts/make-it-move",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Visualize the robot",
+    "permalink": "/docs/concepts/visualize-the-robot"
+  },
+  "next": {
+    "title": "Plan the movements",
+    "permalink": "/docs/concepts/plan-it-from-cpp"
+  }
+}

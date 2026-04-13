@@ -1,0 +1,26 @@
+{
+  "id": "concepts/ros2-control",
+  "title": "ros2_control",
+  "description": "",
+  "source": "@site/docs/concepts/ros2-control.mdx",
+  "sourceDirName": "concepts",
+  "slug": "/concepts/ros2-control",
+  "permalink": "/docs/concepts/ros2-control",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Moveit2",
+    "permalink": "/docs/concepts/Moveit2"
+  },
+  "next": {
+    "title": "USB2CAN",
+    "permalink": "/docs/concepts/USB-to-CAN"
+  }
+}

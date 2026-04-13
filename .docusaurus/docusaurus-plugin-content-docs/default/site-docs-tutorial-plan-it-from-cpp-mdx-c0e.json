@@ -1,0 +1,26 @@
+{
+  "id": "tutorial/plan-it-from-cpp",
+  "title": "Plan movements from code",
+  "description": "",
+  "source": "@site/docs/tutorial/plan-it-from-cpp.mdx",
+  "sourceDirName": "tutorial",
+  "slug": "/tutorial/plan-it-from-cpp",
+  "permalink": "/docs/tutorial/plan-it-from-cpp",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Make it move",
+    "permalink": "/docs/tutorial/make-it-move"
+  },
+  "next": {
+    "title": "Concepts",
+    "permalink": "/docs/category/concepts"
+  }
+}

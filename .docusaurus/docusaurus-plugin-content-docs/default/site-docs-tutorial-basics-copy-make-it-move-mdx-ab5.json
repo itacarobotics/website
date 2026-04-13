@@ -1,0 +1,26 @@
+{
+  "id": "tutorial-basics copy/make-it-move",
+  "title": "Make it move",
+  "description": "Docusaurus creates a page for each blog post, but also a blog index page, a tag system, an RSS feed...",
+  "source": "@site/docs/tutorial-basics copy/make-it-move.mdx",
+  "sourceDirName": "tutorial-basics copy",
+  "slug": "/tutorial-basics copy/make-it-move",
+  "permalink": "/docs/tutorial-basics copy/make-it-move",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Visualize the robot",
+    "permalink": "/docs/tutorial-basics copy/visualize-the-robot"
+  },
+  "next": {
+    "title": "Plan the movements",
+    "permalink": "/docs/tutorial-basics copy/plan-it-from-cpp"
+  }
+}

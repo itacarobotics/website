@@ -1,0 +1,22 @@
+{
+  "id": "concepts/USB-to-CAN",
+  "title": "USB2CAN",
+  "description": "",
+  "source": "@site/docs/concepts/USB-to-CAN.mdx",
+  "sourceDirName": "concepts",
+  "slug": "/concepts/USB-to-CAN",
+  "permalink": "/docs/concepts/USB-to-CAN",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "ros2_control",
+    "permalink": "/docs/concepts/ros2-control"
+  }
+}

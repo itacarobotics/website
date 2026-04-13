@@ -1,0 +1,26 @@
+{
+  "id": "concepts/Moveit2",
+  "title": "Moveit2",
+  "description": "",
+  "source": "@site/docs/concepts/Moveit2.mdx",
+  "sourceDirName": "concepts",
+  "slug": "/concepts/Moveit2",
+  "permalink": "/docs/concepts/Moveit2",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Safety",
+    "permalink": "/docs/concepts/Safety"
+  },
+  "next": {
+    "title": "ros2_control",
+    "permalink": "/docs/concepts/ros2-control"
+  }
+}

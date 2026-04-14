@@ -4,8 +4,8 @@
  * Modify the docusaurus.config.js file at your site's root instead.
  */
 export default {
-  "title": "Robotics has a new name",
-  "tagline": "A project of Itacarobotics",
+  "title": "Ulixarm",
+  "tagline": "A long journey. The right destination.",
   "favicon": "img/favicon.ico",
   "future": {
     "v4": {
@@ -89,11 +89,6 @@ export default {
           "label": "Ulixarm"
         },
         {
-          "to": "/blog",
-          "label": "Blog",
-          "position": "left"
-        },
-        {
           "href": "https://github.com/itacarobotics",
           "label": "GitHub",
           "position": "right"
@@ -117,26 +112,14 @@ export default {
           "title": "Community",
           "items": [
             {
-              "label": "Stack Overflow",
-              "href": "https://stackoverflow.com/questions/tagged/docusaurus"
-            },
-            {
-              "label": "Discord",
-              "href": "https://discordapp.com/invite/docusaurus"
-            },
-            {
-              "label": "X",
-              "href": "https://x.com/docusaurus"
+              "label": "YouTube",
+              "href": "https://www.youtube.com/@itacarobotics"
             }
           ]
         },
         {
           "title": "More",
           "items": [
-            {
-              "label": "Blog",
-              "to": "/blog"
-            },
             {
               "label": "GitHub",
               "href": "https://github.com/itacarobotics"

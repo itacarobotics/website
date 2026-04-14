@@ -1,0 +1,26 @@
+{
+  "id": "tutorial/moving-the-robot-cpp",
+  "title": "Moving the robot (MoveGroup C++)",
+  "description": "",
+  "source": "@site/docs/tutorial/3-moving-the-robot-cpp.mdx",
+  "sourceDirName": "tutorial",
+  "slug": "/tutorial/moving-the-robot-cpp",
+  "permalink": "/docs/tutorial/moving-the-robot-cpp",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Moving the robot (MoveGroup C++)",
+    "permalink": "/docs/tutorial/moving-the-robot-cpp copy"
+  },
+  "next": {
+    "title": "Concepts",
+    "permalink": "/docs/category/concepts"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "tutorial/play-with-gravity",
+  "title": "Play with gravity",
+  "description": "",
+  "source": "@site/docs/tutorial/4-play-with-gravity.mdx",
+  "sourceDirName": "tutorial",
+  "slug": "/tutorial/play-with-gravity",
+  "permalink": "/docs/tutorial/play-with-gravity",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Moving the robot (MoveGroup C++)",
+    "permalink": "/docs/tutorial/moving-the-robot-cpp copy"
+  },
+  "next": {
+    "title": "Write your own algorithms",
+    "permalink": "/docs/tutorial/write-your-own-algorithms"
+  }
+}

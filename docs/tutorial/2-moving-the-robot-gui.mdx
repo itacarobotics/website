@@ -1,0 +1,83 @@
+---
+sidebar_position: 3
+---
+
+# Moving the robot (Moveit2 + Rviz)
+
+In this tutorial we are going to make the real robot move. Follow this tutorial with caution as we 
+will work on the real hardware.
+
+### 1. Fix the robot to a table
+
+Fix the robot to a table and lie it down as can bee seen from the picture.
+
+:::danger
+It is important to fix the robot **at least 1.0 meter** away from people and objects.
+:::
+
+### 2. Press the emergency button
+
+Press the emergency button before pluggin in anything to avoid unexpected behaiviors.
+
+### 3. Connect the Power Source
+
+Connect the cable to the outlet.
+
+### 4. Connect the USB-C
+
+Connect the USB cable from your machine to the control brick. Remember the 1.0 meter distance.
+
+### 5. Connect the Robot
+
+
+___
+
+
+## Run the Demo
+
+
+If you haven't already done so from the previous tutorial, clone the tutorial repository:
+
+```bash
+git clone https://github.com/itacarobotics/ulixarm_tutorial.git
+```
+
+Navigate into the repository:
+
+```bash
+cd ulixarm_tutorial
+```
+
+Build the packages:
+
+```bash
+colcon build
+```
+
+Source the environment:
+
+```bash
+source install/setup.bash
+```
+
+Launch the demo:
+
+:::warning
+Before running the demo, rotate the emergency button to detach it.
+:::
+
+```bash
+ros2 launch exercise_2 demo.launch.py
+```
+
+RViz will open displaying the robot model and a marker to set the goal pose of the robot.
+
+### Plan a trajectory
+
+### Execute a trajectory
+
+### The pilz_industrial_motion_planner
+
+#### LIN
+
+#### PTP

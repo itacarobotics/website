@@ -4,32 +4,34 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Plug and Play',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        No lengthy setup, no complex configuration. Itaca's robot arm is ready
+        the moment it arrives — so your research starts the same day.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: '6+1 Degrees of Freedom',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Six axes of precise articulation, plus one extra degree of freedom for
+        tasks that go beyond the ordinary. More reach, more flexibility, more
+        possibilities for your research.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Learn by Doing',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Hands-on from day one. Itaca is designed for experimentation — an arm
+        that grows with your knowledge, turning every trial into a step forward
+        on your odyssey.
       </>
     ),
   },

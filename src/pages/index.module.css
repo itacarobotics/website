@@ -10,9 +10,9 @@
   overflow: hidden;
   background: linear-gradient(
     135deg,
-    var(--ifm-color-primary) 0%,
-    var(--ifm-color-primary) 30%,
-    var(--ifm-color-primary-light) 100%
+    var(--ifm-color-primary-light) 0%,
+    var(--ifm-color-primary-lighter) 40%,
+    var(--ifm-color-primary-lightest) 100%
   );
   color: white;
 

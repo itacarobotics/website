@@ -2,29 +2,29 @@
 sidebar_position: 2
 ---
 
-# Visualizing the Robot (RViz)
+# Tutorial 1 — Visualizing the Robot
 
-A robot is made of **joints** connected by **links**. To enhance modularity, the kinematic and dynamic parameters are described in a **Unified Robot Description Format (URDF)** file, which primarily consists of two tags: `<link>` and `<joint>`.
+A robot is made of **joints** connected by **links**. To promote modularity and reusability, the kinematic and dynamic parameters of a robot are described in a **Unified Robot Description Format (URDF)** file. A URDF is an XML file built around two core tags: `<link>` and `<joint>`.
 
 ---
 
-## What is a URDF File?
+## What is a URDF?
 
 ### Links
 
-A `<link>` represents a rigid body in the robot and supports up to three subtags:
+A `<link>` represents a rigid body in the robot. Each link supports up to three subtags:
 
 | Subtag | Description |
 |---|---|
 | `<visual>` | Defines the 3D mesh used for rendering in RViz. |
 | `<collision>` | Defines the simplified geometry used for collision detection. |
-| `<inertial>` | Specifies mass and inertia tensors for physics simulation. |
+| `<inertial>` | Specifies the mass and inertia tensor used in physics simulation. |
 
 :::note
-The **base link** has no `<inertial>` tag because it is fixed and does not move.
+The **base link** omits the `<inertial>` tag because it is fixed to the world and does not participate in dynamics simulation.
 :::
 
-**Base link** (no inertial):
+**Base link** (no `<inertial>` tag):
 
 ```xml
 <link name="manipulator_base_link">
@@ -43,7 +43,7 @@ The **base link** has no `<inertial>` tag because it is fixed and does not move.
 </link>
 ```
 
-**Standard link** (with inertial):
+**Standard link** (with `<inertial>` tag):
 
 ```xml
 <link name="manipulator_link1">
@@ -62,7 +62,8 @@ The **base link** has no `<inertial>` tag because it is fixed and does not move.
   <inertial>
     <origin xyz="0. 0. 0.037"/>
     <mass value="0.480"/>
-    <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.002"/>
+    <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+             iyy="0.0001" iyz="0.0" izz="0.002"/>
   </inertial>
 </link>
 ```
@@ -71,15 +72,15 @@ The **base link** has no `<inertial>` tag because it is fixed and does not move.
 
 ### Joints
 
-A `<joint>` connects two links — a **parent** and a **child** — and defines how they move relative to each other.
+A `<joint>` connects two links — a **parent** and a **child** — and defines how they move relative to each other. The full kinematic chain of the robot is built by chaining joints from the base link to the end-effector.
 
 | Subtag | Description |
 |---|---|
-| `<origin>` | Position and orientation of the joint relative to the parent link. |
+| `<origin>` | Position and orientation of the joint frame relative to the parent link. |
 | `<parent>` | The upstream link in the kinematic chain. |
 | `<child>` | The downstream link driven by this joint. |
-| `<axis>` | The axis of rotation or translation (unit vector). |
-| `<limit>` | Defines effort, velocity, and angular range constraints. |
+| `<axis>` | The axis of rotation or translation, expressed as a unit vector. |
+| `<limit>` | Defines the effort, velocity, and angular range constraints of the joint. |
 
 ```xml
 <joint name="joint1" type="revolute">
@@ -92,59 +93,59 @@ A `<joint>` connects two links — a **parent** and a **child** — and defines 
 ```
 
 :::tip
-You can explore the full URDF of the UlixArm in the [`ulixarm_description`](https://github.com/itacarobotics/ulixarm_description/tree/main/src/ulixarm_description/urdf) package.
+You can browse the full URDF of the UlixArm in the [`ulixarm_description`](https://github.com/itacarobotics/ulixarm_description/tree/main/src/ulixarm_description/urdf) package.
 :::
 
 :::note
-You may notice `.xacro` files alongside the URDF — don't be alarmed. **Xacro** (XML Macros) is a preprocessor for URDF that allows you to use variables, math expressions, and macros to avoid repetition and keep descriptions clean. It compiles down to a standard URDF at runtime.
+You may notice `.xacro` files alongside the URDF. **Xacro** (XML Macros) is a preprocessor for URDF that introduces support for variables, math expressions, and reusable macros — keeping robot descriptions concise and maintainable. Xacro files are automatically compiled into standard URDF at runtime.
 :::
 
 :::tip
-For a step-by-step guide on writing your own URDF, refer to the [official ROS 2 URDF tutorial](https://docs.ros.org/en/jazzy/Tutorials/Intermediate/URDF/URDF-Main.html).
+For a step-by-step guide on writing your own URDF from scratch, refer to the [official ROS 2 URDF tutorial](https://docs.ros.org/en/jazzy/Tutorials/Intermediate/URDF/URDF-Main.html).
 :::
 
 ---
 
 ## Run the Demo
 
-Clone the tutorial repository:
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/itacarobotics/ulixarm_tutorial.git
 ```
 
-Navigate into the repository:
+### 2. Navigate into the repository
 
 ```bash
 cd ulixarm_tutorial
 ```
 
-Build the packages:
+### 3. Build the packages
 
 ```bash
 colcon build
 ```
 
-Source the environment:
+### 4. Source the environment
 
 ```bash
 source install/setup.bash
 ```
 
 :::warning
-You must source the environment in **every new terminal**. If you followed the [Getting Started](/docs/tutorial/getting-started/#17-source-the-environment) guide, the ROS environment is already sourced automatically via `.bashrc`.
+You must source the workspace in **every new terminal** before running any ROS 2 commands. If you completed the [Getting Started](../getting-started#source-the-environment) guide, this is already handled automatically via your `.bashrc`.
 :::
 
-Launch the demo:
+### 5. Launch the demo
 
 ```bash
 ros2 launch exercise_1 display.launch.py
 ```
 
-RViz will open displaying the robot model. Use the **Joint State Publisher GUI** to interactively change the angle of each joint.
+RViz will open and display the robot model. Use the **Joint State Publisher GUI** to interactively adjust the angle of each joint and observe how the robot moves.
 
 {/* ![Robot visualization in RViz](./static/img/docusaurus-social-card.jpg) */}
 
 :::info
-Some joints will rotate **clockwise** and others **counter-clockwise** for a positive angle value. This is determined by the physical orientation of the motors in the mechanical assembly.
+Some joints will rotate **clockwise** and others **counter-clockwise** for a positive angle value. This behavior is determined by the physical orientation of the motors in the mechanical assembly.
 :::

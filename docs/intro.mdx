@@ -3,3 +3,27 @@ sidebar_position: 1
 ---
 
 # Introduction
+
+**Ulixarm** is an open-source 6 DOF robotic arm manipulator designed to give robotics enthusiasts and students a practical and accessible entry point into the world of robotics.
+
+This tutorial series will guide you through setting up and operating the robot, while building a hands-on intuition for the core concepts typically covered in university-level robotics courses.
+
+## Tutorial Structure
+
+### Tutorial 0 — Getting Started
+Set up your development environment by installing ROS 2 and all required packages needed to run the robot.
+
+### Tutorial 1 — Visualizing the Robot
+Get introduced to the Universal Robot Description Format (URDF) and launch your first demo to visualize the robot in RViz.
+
+### Tutorial 2 — Moving the Robot (MoveIt 2 + RViz)
+Connect the hardware, configure MoveIt 2, and launch a demo to plan and execute trajectories directly from RViz. Experiment with different motion planners to understand their behavior.
+
+### Tutorial 3 — Moving the Robot (MoveGroup API)
+Learn how to control the robot programmatically using the MoveGroup ROS 2 C++ API. Run the provided demo to watch the robot in action, or modify it to build your first custom application.
+
+### Tutorial 4 — Springs and Dampers
+Gain a practical understanding of PD controllers. Physically interact with the robot and experiment with different proportional ($K_p$) and derivative ($K_d$) gains to observe their effect on robot behavior.
+
+### Tutorial 5 — Playing with Gravity
+Explore one of the most important contributions in robot control: gravity compensation. Compare a plain PD position controller against one with gravity compensation, and experience free-floating mode firsthand.

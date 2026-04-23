@@ -8,8 +8,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        No lengthy setup, no complex configuration. Itaca's robot arm is ready
-        the moment it arrives — so your research starts the same day.
+        Follow the Tutorial and get started from day 1.
       </>
     ),
   },
@@ -18,20 +17,16 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Six axes of precise articulation, plus one extra degree of freedom for
-        tasks that go beyond the ordinary. More reach, more flexibility, more
-        possibilities for your research.
+        6 Degrees of Freedom manipulator + 1 Degree of Freedom parallel gripper.
       </>
     ),
   },
   {
-    title: 'Learn by Doing',
+    title: 'ROS2',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Hands-on from day one. Itaca is designed for experimentation — an arm
-        that grows with your knowledge, turning every trial into a step forward
-        on your odyssey.
+        Native ROS2 developement with Moveit2 and ros2_controllers integrations.
       </>
     ),
   },

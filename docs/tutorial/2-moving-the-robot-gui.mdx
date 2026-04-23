@@ -2,41 +2,49 @@
 sidebar_position: 3
 ---
 
-# Moving the robot (Moveit2 + Rviz)
+# Tutorial 2 — Moving the Robot (MoveIt 2 + RViz)
 
-In this tutorial we are going to make the real robot move. Follow this tutorial with caution as we 
-will work on the real hardware.
+In this tutorial we will make the real robot move using MoveIt 2 and RViz. Follow each step carefully — from this point on, we are working with real hardware.
 
-### 1. Fix the robot to a table
+---
 
-Fix the robot to a table and lie it down as can bee seen from the picture.
+## Hardware Setup
+
+### 1. Mount the Robot
+
+Securely fix the robot to a table in the position shown in the picture below.
+
+{/* ![Robot mounted on table](./static/img/robot_mount.jpg) */}
 
 :::danger
-It is important to fix the robot **at least 1.0 meter** away from people and objects.
+The robot must be fixed **at least 1.0 meter away** from people and objects at all times. Never operate the robot in an unsecured environment.
 :::
 
-### 2. Press the emergency button
+### 2. Press the Emergency Button
 
-Press the emergency button before pluggin in anything to avoid unexpected behaiviors.
+Press the emergency button **before** connecting any cables to prevent unexpected motion during startup.
 
 ### 3. Connect the Power Source
 
-Connect the cable to the outlet.
+Plug the power cable into the outlet.
 
-### 4. Connect the USB-C
+### 4. Connect the USB-C Cable
 
-Connect the USB cable from your machine to the control brick. Remember the 1.0 meter distance.
+Connect the USB-C cable from your machine to the control brick.
+
+:::warning
+Ensure the USB-C cable is long enough to maintain the **1.0 meter safety clearance** between the robot and your workstation.
+:::
 
 ### 5. Connect the Robot
 
+{/* Add connection steps here */}
 
-___
-
+---
 
 ## Run the Demo
 
-
-If you haven't already done so from the previous tutorial, clone the tutorial repository:
+If you haven't already done so in the previous tutorial, clone the tutorial repository:
 
 ```bash
 git clone https://github.com/itacarobotics/ulixarm_tutorial.git
@@ -60,24 +68,40 @@ Source the environment:
 source install/setup.bash
 ```
 
-Launch the demo:
-
 :::warning
-Before running the demo, rotate the emergency button to detach it.
+Before launching the demo, **rotate the emergency button** to release it and re-enable motor power.
 :::
+
+Launch the demo:
 
 ```bash
 ros2 launch exercise_2 demo.launch.py
 ```
 
-RViz will open displaying the robot model and a marker to set the goal pose of the robot.
+RViz will open displaying the robot model along with an interactive marker you can use to set the goal pose.
 
-### Plan a trajectory
+---
 
-### Execute a trajectory
+## Planning and Executing Trajectories
 
-### The pilz_industrial_motion_planner
+### Plan a Trajectory
 
-#### LIN
+{/* Add planning instructions here */}
 
-#### PTP
+### Execute a Trajectory
+
+{/* Add execution instructions here */}
+
+---
+
+## The Pilz Industrial Motion Planner
+
+MoveIt 2 supports multiple motion planners. In this tutorial we use the **Pilz Industrial Motion Planner**, which provides deterministic, geometry-based planners well suited for industrial manipulators.
+
+### PTP — Point-to-Point
+
+{/* Describe PTP motion: joint-space interpolation, use cases */}
+
+### LIN — Linear
+
+{/* Describe LIN motion: Cartesian linear interpolation, use cases */}

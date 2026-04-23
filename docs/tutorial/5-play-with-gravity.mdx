@@ -1,0 +1,137 @@
+---
+sidebar_position: 6
+---
+
+# Tutorial 5 — Playing with Gravity
+
+In this tutorial we will explore how gravity affects robot motion, how it can be compensated for in the controller, and what interesting behaviors emerge as a result.
+
+---
+
+## Background
+
+As introduced in the previous tutorial, each joint can be modeled as a virtual spring-damper system. With this analogy in mind, consider what happens when you hang a mass from a spring: gravity pulls the mass downward, displacing it from the neutral position until the spring force reaches equilibrium with gravity.
+
+At rest, this balance is described by:
+
+$$m \cdot g = k \cdot \delta x$$
+
+The same effect occurs on a robot arm. When a joint holds a link against gravity, the gravity torque acts like an external disturbance — causing a steady-state position error that the PD controller alone cannot fully eliminate. The following demos will let you observe and compare this behavior directly on the hardware.
+
+---
+
+## Demo 1 — Without Gravity Compensation
+
+Open a terminal and navigate to the tutorial repository:
+
+```bash
+cd ulixarm_tutorial
+code .
+```
+
+Open the file at the following path:
+
+```
+~/ulixarm_tutorial/src/ulixarm_description/src/ulixarm_moveit_config/config/ulixarm.ros2_control.xacro
+```
+
+In the `<hardware>` tag, set `use_gravity_compensation` to `false` and ensure `use_free_floating` is also set to `false`:
+
+```xml
+<hardware>
+    <param name="use_gravity_compensation">false</param>
+    <param name="use_free_floating">false</param>
+</hardware>
+```
+
+Build the packages:
+
+```bash
+colcon build
+```
+
+Launch the demo:
+
+```bash
+ros2 launch ulixarm_tutorial_bringup demo.launch.py
+```
+
+In RViz, drag the interactive marker to a new pose and click **Plan and Execute**.
+
+:::info
+The **orange robot** represents the goal pose. The **textured robot** represents the real pose of the robot, read from the joint encoders.
+:::
+
+Observe the difference between the two and reflect on the following questions:
+
+> How large is the position error between the goal and the real pose?
+
+> Based on what you learned in Tutorial 4, how does increasing $K_p$ on `joint2` affect the error? Does the error ever fully vanish?
+
+---
+
+## Demo 2 — With Gravity Compensation
+
+As introduced in Tutorial 4, the MIT controller accepts a feed-forward torque input $\tau_{ff}$. This term allows the motor to apply a torque independently of the position and velocity error — making it an ideal channel for gravity compensation.
+
+To compensate for gravity, $\tau_{ff}$ is set to the vector of gravity torques $\mathbf{g}(\mathbf{q})$, computed at each control loop using the [Pinocchio](https://github.com/stack-of-tasks/pinocchio) library:
+
+$$\tau_{ff} = \mathbf{g}(\mathbf{q}) = \texttt{pinocchio::computeGeneralizedGravity}(\mathbf{q})$$
+
+Note that $\mathbf{g}(\mathbf{q})$ depends on the current robot configuration. Consider the difference in effort required at `joint2` when the arm is stretched vertically versus horizontally — the gravity torque changes significantly with pose.
+
+In the `<hardware>` tag, set `use_gravity_compensation` to `true` and ensure `use_free_floating` remains `false`:
+
+```xml
+<hardware>
+    <param name="use_gravity_compensation">true</param>
+    <param name="use_free_floating">false</param>
+</hardware>
+```
+
+Build and relaunch:
+
+```bash
+colcon build
+```
+
+```bash
+ros2 launch ulixarm_tutorial_bringup demo.launch.py
+```
+
+Plan and execute a trajectory as before, then reflect:
+
+> Has the position error improved compared to Demo 1?
+
+> What factors might still limit the accuracy of gravity compensation?
+
+:::note
+No model is perfect. The inertial parameters (masses, center of mass positions) are estimated from the CAD model and carry some error. Additional unmodeled effects — such as joint friction, which varies with temperature and wear — further limit how accurately gravity can be compensated.
+:::
+
+---
+
+## Demo 3 — Free Floating
+
+What happens if we stop commanding the robot to hold a fixed position and instead only compensate for gravity? The joint torques balance gravity exactly, leaving no net force acting on the robot — it behaves as if it were floating in zero gravity.
+
+In the `<hardware>` tag, set both flags as follows:
+
+```xml
+<hardware>
+    <param name="use_gravity_compensation">true</param>
+    <param name="use_free_floating">true</param>
+</hardware>
+```
+
+Build and relaunch:
+
+```bash
+colcon build
+```
+
+```bash
+ros2 launch ulixarm_tutorial_bringup demo.launch.py
+```
+
+You can now move the robot freely with your hand. When you release it, the robot will hold whatever pose it was left in — with no position command driving it. Enjoy the experiment!

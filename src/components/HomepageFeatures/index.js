@@ -8,7 +8,7 @@ const FeatureList = [
     // Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Follow the Tutorial and get started from day 1.
+        Follow the Tutorial and get started from day one.
       </>
     ),
   },

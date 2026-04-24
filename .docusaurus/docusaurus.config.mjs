@@ -4,8 +4,8 @@
  * Modify the docusaurus.config.js file at your site's root instead.
  */
 export default {
-  "title": "Ulixarm",
-  "tagline": "Learning has never made so much fun!",
+  "title": "Ulixarm-Research-Kit is here!",
+  "tagline": "Learning has never made so much fun",
   "favicon": "img/favicon.ico",
   "future": {
     "v4": {
@@ -86,7 +86,7 @@ export default {
           "type": "docSidebar",
           "sidebarId": "tutorialSidebar",
           "position": "left",
-          "label": "Ulixarm"
+          "label": "Ulixarm Research Kit"
         },
         {
           "href": "https://github.com/itacarobotics",

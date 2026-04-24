@@ -2,9 +2,9 @@
 sidebar_position: 5
 ---
 
-# Tutorial 4 — Springs and Dampers
+# Tutorial 4: Springs and Dampers
 
-In this tutorial we will explore how different `Kp` and `Kd` values of a PD controller influence the behavior of the robot. We will start by discussing what happens under the hood, and then experiment directly on the hardware.
+In this tutorial we will explore how different `Kp` and `Kd` gains of a PD controller influence the behavior of the robot. We will start by discussing what happens under the hood, and then experiment directly on the hardware.
 
 ---
 
@@ -12,12 +12,12 @@ In this tutorial we will explore how different `Kp` and `Kd` values of a PD cont
 
 As seen in the previous tutorial, the MoveGroup node publishes joint trajectories on the `/joint_trajectory` topic. The `ros2_control` node subscribes to this topic and executes the trajectory. The **FollowJointTrajectory** controller exposes two command interfaces per joint:
 
-- **Position** (`q`)
-- **Velocity** (`dq`)
+- **Position** (`q_des`)
+- **Velocity** (`dq_des`)
 
 These are forwarded to each joint over a CAN bus. Each joint has its own built-in controller that drives the motor to the commanded position and velocity. The architecture used is the **MIT controller**, illustrated in the diagram below.
 
-{/* ![MIT controller diagram]() */}
+![mit_diagram](/img/tutorial/mit_diagram.png)
 
 Beyond position and velocity, the MIT controller also accepts three additional inputs:
 
@@ -27,14 +27,14 @@ Beyond position and velocity, the MIT controller also accepts three additional i
 | `Kd` | Derivative gain — acts as a virtual **damper**. A higher `Kd` dissipates energy faster, reducing oscillations as the joint approaches the target. |
 | `tau_ff` | Feed-forward torque — an additional torque input, typically used to compensate for gravity (covered in the next tutorial). |
 
-Together, `Kp` and `Kd` define how stiff and how damped the joint behavior feels when you interact with the robot physically — which is exactly what we will explore in this tutorial.
+Together, `Kp` and `Kd` define how stiff and how damped the joint behavior feels when you interact with the robot physically, which is exactly what we will explore in this tutorial.
 
 ---
 
 ## Run the Demo
 
 :::note
-If you haven't cloned the tutorial repository yet, refer to [Tutorial 1 — Visualizing the Robot](../visualizing-the-robot).
+If you haven't cloned the tutorial repository yet, refer to [Tutorial 1 — Visualizing the Robot](docs/tutorial/1-visualizing-the-robot.mdx).
 :::
 
 Open a terminal and navigate to the tutorial repository:
@@ -53,14 +53,14 @@ code .
 
 ## Tuning the Parameters
 
-To change the `Kp` and `Kd` values, open the file `ulixarm.ros2_control.xacro`, located at:
+To change the `Kp` and `Kd` gains, open the file `ulixarm.ros2_control.xacro`, located at:
 
 ```
 ~/ulixarm_tutorial/src/ulixarm_description/src/ulixarm_moveit_config/config/ulixarm.ros2_control.xacro
 ```
 
 :::danger
-Do **not** set `Kp` or `Kd` values outside the boundaries listed in the table below. Out-of-range values can cause joint instability and unpredictable robot motion.
+Do **not** set `Kp` or `Kd` gains outside the boundaries listed in the table below. Out-of-range values can cause joint instability and unpredictable robot motion.
 
 Do **not** modify the `finger_right_joint` parameters.
 :::
@@ -76,7 +76,7 @@ Do **not** modify the `finger_right_joint` parameters.
 | `joint5` | 10 – 150 | 0.5 – 3.0 |
 | `joint6` | 10 – 100 | 0.5 – 3.0 |
 
-Each joint is defined by a block like the following:
+Each joint tag in the `ulixarm.ros2_control.xacro` is defined by a block like the following:
 
 ```xml
 <joint name="joint1">
@@ -91,13 +91,25 @@ Each joint is defined by a block like the following:
 </joint>
 ```
 
-Edit the `Kp` and `Kd` values in each block to experiment with different behaviors.
+You can edit the `Kp` and `Kd` gains in each joint block.
+To apply the changes you first have to build the packages. 
+Remember to build the package from the root folder of the project
+
+```bash
+cd ~/ulixarm_tutorial
+```
+
+```bash
+colcon build
+```
+
+
 
 ---
 
 ## Experiments
 
-### Experiment 1 — Effect of `Kp`
+### Experiment 1 - Effect of `Kp`
 
 Set all `Kp` values to their **lowest admissible value** and gently push the robot's gripper with your hand.
 
@@ -105,7 +117,7 @@ Set all `Kp` values to their **lowest admissible value** and gently push the rob
 
 Now set all `Kp` values to their **highest admissible value** and repeat.
 
-> What has changed? Think about the **spring analogy** — a stiffer spring resists displacement more strongly.
+> What has changed? Think about the **spring analogy**, a stiffer spring resists displacement more strongly.
 
 ---
 
@@ -117,7 +129,7 @@ Set all `Kd` values to their **lowest admissible value** and gently displace the
 
 Now set all `Kd` values to their **highest admissible value** and repeat.
 
-> What has changed? Think about the **damper analogy** — a stronger damper dissipates energy faster and suppresses oscillations.
+> What has changed? Think about the **damper analogy**, a stronger damper dissipates energy faster and suppresses oscillations.
 
 ---
 

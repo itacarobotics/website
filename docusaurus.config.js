@@ -10,9 +10,9 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Ulixarm',
+  title: 'Ulixarm-Research-Kit is here!',
   // tagline: "The research arm you've been looking for.",
-  tagline: "Learning has never made so much fun!",
+  tagline: "Learning has never made so much fun",
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -94,7 +94,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Ulixarm',
+            label: 'Ulixarm Research Kit',
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {

@@ -1,6 +1,6 @@
 {
   "id": "tutorial/visualizing-the-robot",
-  "title": "Tutorial 1 — Visualizing the Robot",
+  "title": "Tutorial 1: Visualizing the Robot",
   "description": "A robot is made of joints connected by links. To promote modularity and reusability, the kinematic and dynamic parameters of a robot are described in a Unified Robot Description Format (URDF) file. A URDF is an XML file built around two core tags: ` and `.",
   "source": "@site/docs/tutorial/1-visualizing-the-robot.mdx",
   "sourceDirName": "tutorial",
@@ -20,7 +20,7 @@
     "permalink": "/docs/tutorial/getting-started"
   },
   "next": {
-    "title": "Tutorial 2 — Moving the Robot (MoveIt 2 + RViz)",
+    "title": "Tutorial 2: Moving the Robot (MoveIt 2 + RViz)",
     "permalink": "/docs/tutorial/moving-the-robot-gui"
   }
 }

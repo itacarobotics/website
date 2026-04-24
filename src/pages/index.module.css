@@ -9,11 +9,11 @@
   position: relative;
   overflow: hidden;
   background: linear-gradient(
-    135deg,
-    var(--ifm-color-primary-light) 0%,
-    var(--ifm-color-primary-lighter) 40%,
+    90deg,
+    var(--ifm-color-primary) 0%,
     var(--ifm-color-primary-lightest) 100%
   );
+
   color: white;
 
   /* background-image: url('/static/img/docusaurus-social-card.jpg');

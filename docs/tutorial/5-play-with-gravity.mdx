@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# Tutorial 5 — Playing with Gravity
+# Tutorial 5: Playing with Gravity
 
 In this tutorial we will explore how gravity affects robot motion, how it can be compensated for in the controller, and what interesting behaviors emerge as a result.
 
@@ -14,9 +14,9 @@ As introduced in the previous tutorial, each joint can be modeled as a virtual s
 
 At rest, this balance is described by:
 
-> **m · g = k · δx**
+> **m · g = k · Δx**
 
-The same effect occurs on a robot arm. When a joint holds a link against gravity, the gravity torque acts like an external disturbance — causing a steady-state position error that the PD controller alone cannot fully eliminate. The following demos will let you observe and compare this behavior directly on the hardware.
+The same effect occurs on a robot arm. When a joint holds a link against gravity, the gravity torque acts like an external disturbance, causing a steady-state position error that the PD controller alone cannot fully eliminate. The following demos will let you observe and compare this behavior directly on the hardware.
 
 ---
 
@@ -25,9 +25,15 @@ The same effect occurs on a robot arm. When a joint holds a link against gravity
 Open a terminal and navigate to the tutorial repository:
 
 ```bash
-cd ulixarm_tutorial
+cd ~/ulixarm_tutorial
+```
+
+And open the project with your favourite code editor. To open it in VSCode run
+
+```bash
 code .
 ```
+
 
 Open the file at the following path:
 
@@ -53,10 +59,11 @@ colcon build
 Launch the demo:
 
 ```bash
-ros2 launch ulixarm_tutorial_bringup demo.launch.py
+ros2 launch tutorial demo.launch.py
 ```
 
 In RViz, drag the interactive marker to a new pose and click **Plan and Execute**.
+For a more detailed tutorial on how to interact with the robot from RViz, consider following the tutorial: [Moving the Robot (MoveIt 2 + RViz)](/docs/tutorial/2-moving-the-robot-gui.mdx).
 
 :::info
 The **orange robot** represents the goal pose. The **textured robot** represents the real pose of the robot, read from the joint encoders.
@@ -76,7 +83,7 @@ As introduced in Tutorial 4, the MIT controller accepts a feed-forward torque in
 
 To compensate for gravity, `tau_ff` is set to the gravity torque vector `g(q)`, computed at each control loop via `pinocchio::computeGeneralizedGravity(q)`.
 
-Note that `g(q)` depends on the current robot configuration. Consider the difference in effort required at `joint2` when the arm is stretched vertically versus horizontally — the gravity torque changes significantly with pose.
+Note that `g(q)` depends on the current robot configuration. Consider the difference in effort required at `joint2` when the arm is stretched vertically versus horizontally, the gravity torque changes significantly with pose.
 
 In the `<hardware>` tag, set `use_gravity_compensation` to `true` and ensure `use_free_floating` remains `false`:
 
@@ -87,14 +94,16 @@ In the `<hardware>` tag, set `use_gravity_compensation` to `true` and ensure `us
 </hardware>
 ```
 
-Build and relaunch:
+To apply the changes, build the packages:
 
 ```bash
 colcon build
 ```
 
+Launch the demo:
+
 ```bash
-ros2 launch ulixarm_tutorial_bringup demo.launch.py
+ros2 launch tutorial demo.launch.py
 ```
 
 Plan and execute a trajectory as before, then reflect:
@@ -104,14 +113,14 @@ Plan and execute a trajectory as before, then reflect:
 > What factors might still limit the accuracy of gravity compensation?
 
 :::note
-No model is perfect. The inertial parameters (masses, center of mass positions) are estimated from the CAD model and carry some error. Additional unmodeled effects — such as joint friction, which varies with temperature and wear — further limit how accurately gravity can be compensated.
+No model is perfect. The inertial parameters (masses, center of mass positions) are estimated from the CAD model and carry some error. Additional unmodeled effects, such as joint friction, which varies with temperature and wear — further limit how accurately gravity can be compensated.
 :::
 
 ---
 
 ## Demo 3 — Free Floating
 
-What happens if we stop commanding the robot to hold a fixed position and instead only compensate for gravity? The joint torques balance gravity exactly, leaving no net force acting on the robot — it behaves as if it were floating in zero gravity.
+What happens if we stop commanding the robot to hold a fixed position and instead only compensate for gravity? The joint torques balance gravity exactly, leaving no net force acting on the robot, it behaves as if it were floating in zero gravity.
 
 In the `<hardware>` tag, set both flags as follows:
 
@@ -122,14 +131,16 @@ In the `<hardware>` tag, set both flags as follows:
 </hardware>
 ```
 
-Build and relaunch:
+To apply the changes, build the packages:
 
 ```bash
 colcon build
 ```
 
+Launch the demo:
+
 ```bash
-ros2 launch ulixarm_tutorial_bringup demo.launch.py
+ros2 launch tutorial demo.launch.py
 ```
 
-You can now move the robot freely with your hand. When you release it, the robot will hold whatever pose it was left in — with no position command driving it. Enjoy the experiment!
+You can now move the robot freely with your hand. When you release it, the robot will hold whatever pose it was left in, with no position command driving it. Enjoy the experiment!

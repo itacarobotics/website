@@ -1,6 +1,6 @@
 {
   "id": "tutorial/play-with-gravity",
-  "title": "Tutorial 5 — Playing with Gravity",
+  "title": "Tutorial 5: Playing with Gravity",
   "description": "In this tutorial we will explore how gravity affects robot motion, how it can be compensated for in the controller, and what interesting behaviors emerge as a result.",
   "source": "@site/docs/tutorial/5-play-with-gravity.mdx",
   "sourceDirName": "tutorial",
@@ -16,7 +16,7 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Tutorial 4 — Springs and Dampers",
+    "title": "Tutorial 4: Springs and Dampers",
     "permalink": "/docs/tutorial/springs-and-dampers"
   }
 }

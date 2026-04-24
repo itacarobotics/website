@@ -114,49 +114,19 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', 'b58'),
+    component: ComponentCreator('/docs', '492'),
     routes: [
       {
         path: '/docs',
-        component: ComponentCreator('/docs', 'f89'),
+        component: ComponentCreator('/docs', '7b9'),
         routes: [
           {
             path: '/docs',
-            component: ComponentCreator('/docs', '445'),
+            component: ComponentCreator('/docs', '5d7'),
             routes: [
-              {
-                path: '/docs/category/concepts',
-                component: ComponentCreator('/docs/category/concepts', 'a1a'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
               {
                 path: '/docs/category/tutorial',
                 component: ComponentCreator('/docs/category/tutorial', '23d'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/concepts/Moveit2',
-                component: ComponentCreator('/docs/concepts/Moveit2', '462'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/concepts/ros2-control',
-                component: ComponentCreator('/docs/concepts/ros2-control', 'a0e'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/concepts/Safety',
-                component: ComponentCreator('/docs/concepts/Safety', '71c'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/concepts/USB-to-CAN',
-                component: ComponentCreator('/docs/concepts/USB-to-CAN', '5c6'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -186,19 +156,19 @@ export default [
               },
               {
                 path: '/docs/tutorial/play-with-gravity',
-                component: ComponentCreator('/docs/tutorial/play-with-gravity', '1be'),
+                component: ComponentCreator('/docs/tutorial/play-with-gravity', 'f6e'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial/springs-and-dampers',
+                component: ComponentCreator('/docs/tutorial/springs-and-dampers', 'fe9'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
                 path: '/docs/tutorial/visualizing-the-robot',
                 component: ComponentCreator('/docs/tutorial/visualizing-the-robot', '3d5'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial/write-your-own-algorithms',
-                component: ComponentCreator('/docs/tutorial/write-your-own-algorithms', 'e6f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               }

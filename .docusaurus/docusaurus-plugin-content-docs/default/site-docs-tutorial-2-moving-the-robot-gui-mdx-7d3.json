@@ -1,7 +1,7 @@
 {
   "id": "tutorial/moving-the-robot-gui",
-  "title": "Moving the robot (Moveit2 + Rviz)",
-  "description": "In this tutorial we are going to make the real robot move. Follow this tutorial with caution as we",
+  "title": "Tutorial 2 — Moving the Robot (MoveIt 2 + RViz)",
+  "description": "In this tutorial we will make the real robot move using MoveIt 2 and RViz. Follow each step carefully — from this point on, we are working with real hardware.",
   "source": "@site/docs/tutorial/2-moving-the-robot-gui.mdx",
   "sourceDirName": "tutorial",
   "slug": "/tutorial/moving-the-robot-gui",
@@ -16,7 +16,7 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Visualizing the Robot (RViz)",
+    "title": "Tutorial 1 — Visualizing the Robot",
     "permalink": "/docs/tutorial/visualizing-the-robot"
   },
   "next": {

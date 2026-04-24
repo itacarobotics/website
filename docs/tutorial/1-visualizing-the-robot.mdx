@@ -111,13 +111,13 @@ For a step-by-step guide on writing your own URDF from scratch, refer to the [of
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/itacarobotics/ulixarm_tutorial.git
+git clone https://github.com/itacarobotics/ulixarm_ros2.git
 ```
 
 ### 2. Navigate into the repository
 
 ```bash
-cd ulixarm_tutorial
+cd ulixarm_ros2
 ```
 
 ### 3. Build the packages
@@ -139,8 +139,13 @@ You must source the workspace in **every new terminal** before running any ROS 2
 ### 5. Launch the demo
 
 ```bash
-ros2 launch exercise_1 display.launch.py
+ros2 launch tutorial display.launch.py
 ```
+
+RViz and the joint_state_publisher_gui will open.
+
+#### Select the fixed frame
+In order for RViz to show
 
 RViz will open and display the robot model. Use the **Joint State Publisher GUI** to interactively adjust the angle of each joint and observe how the robot moves.
 

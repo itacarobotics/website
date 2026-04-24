@@ -249,42 +249,22 @@
     },
     "content": "content---markdown-page-4-c-6-c89"
   },
-  "/docs-b58": {
+  "/docs-492": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---docsaba-d7c"
     }
   },
-  "/docs-f89": {
+  "/docs-7b9": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---docs-005-788"
   },
-  "/docs-445": {
+  "/docs-5d7": {
     "__comp": "__comp---theme-doc-roota-94-67a"
-  },
-  "/docs/category/concepts-a1a": {
-    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
-    "__props": "__props---docs-category-conceptsdb-1-d4b"
   },
   "/docs/category/tutorial-23d": {
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
     "__props": "__props---docs-category-tutorialb-4-d-1e8"
-  },
-  "/docs/concepts/Moveit2-462": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-concepts-moveit-2-c-8-d-214"
-  },
-  "/docs/concepts/ros2-control-a0e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-concepts-ros-2-controlcf-7-764"
-  },
-  "/docs/concepts/Safety-71c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-concepts-safetya-45-160"
-  },
-  "/docs/concepts/USB-to-CAN-5c6": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-concepts-usb-to-can-3-ab-8cd"
   },
   "/docs/intro-89a": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -302,17 +282,17 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-tutorial-moving-the-robot-gui-7-d-3-042"
   },
-  "/docs/tutorial/play-with-gravity-1be": {
+  "/docs/tutorial/play-with-gravity-f6e": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-play-with-gravity-55-b-3ed"
+    "content": "content---docs-tutorial-play-with-gravity-2-e-4-257"
+  },
+  "/docs/tutorial/springs-and-dampers-fe9": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-springs-and-dampers-824-a47"
   },
   "/docs/tutorial/visualizing-the-robot-3d5": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-tutorial-visualizing-the-robotc-23-0b3"
-  },
-  "/docs/tutorial/write-your-own-algorithms-e6f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-write-your-own-algorithmsb-33-9e8"
   },
   "/-2e1": {
     "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",

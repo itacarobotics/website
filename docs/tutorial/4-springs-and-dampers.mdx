@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Tutorial 4 — Springs and Dampers
 
-In this tutorial we will explore how different $K_p$ and $K_d$ values of a PD controller influence the behavior of the robot. We will start by discussing what happens under the hood, and then experiment directly on the hardware.
+In this tutorial we will explore how different `Kp` and `Kd` values of a PD controller influence the behavior of the robot. We will start by discussing what happens under the hood, and then experiment directly on the hardware.
 
 ---
 
@@ -12,8 +12,8 @@ In this tutorial we will explore how different $K_p$ and $K_d$ values of a PD co
 
 As seen in the previous tutorial, the MoveGroup node publishes joint trajectories on the `/joint_trajectory` topic. The `ros2_control` node subscribes to this topic and executes the trajectory. The **FollowJointTrajectory** controller exposes two command interfaces per joint:
 
-- **Position** ($q$)
-- **Velocity** ($\dot{q}$)
+- **Position** (`q`)
+- **Velocity** (`dq`)
 
 These are forwarded to each joint over a CAN bus. Each joint has its own built-in controller that drives the motor to the commanded position and velocity. The architecture used is the **MIT controller**, illustrated in the diagram below.
 
@@ -23,11 +23,11 @@ Beyond position and velocity, the MIT controller also accepts three additional i
 
 | Parameter | Description |
 |---|---|
-| $K_p$ | Proportional gain — acts as a virtual **spring stiffness**. A higher $K_p$ makes the joint resist displacement more strongly, pulling it back to the desired position with greater force. |
-| $K_d$ | Derivative gain — acts as a virtual **damper**. A higher $K_d$ dissipates energy faster, reducing oscillations as the joint approaches the target. |
-| $\tau_{ff}$ | Feed-forward torque — an additional torque input, typically used to compensate for gravity (covered in the next tutorial). |
+| `Kp` | Proportional gain — acts as a virtual **spring stiffness**. A higher `Kp` makes the joint resist displacement more strongly, pulling it back to the desired position with greater force. |
+| `Kd` | Derivative gain — acts as a virtual **damper**. A higher `Kd` dissipates energy faster, reducing oscillations as the joint approaches the target. |
+| `tau_ff` | Feed-forward torque — an additional torque input, typically used to compensate for gravity (covered in the next tutorial). |
 
-Together, $K_p$ and $K_d$ define how stiff and how damped the joint behavior feels when you interact with the robot physically — which is exactly what we will explore in this tutorial.
+Together, `Kp` and `Kd` define how stiff and how damped the joint behavior feels when you interact with the robot physically — which is exactly what we will explore in this tutorial.
 
 ---
 
@@ -53,21 +53,21 @@ code .
 
 ## Tuning the Parameters
 
-To change the $K_p$ and $K_d$ values, open the file `ulixarm.ros2_control.xacro`, located at:
+To change the `Kp` and `Kd` values, open the file `ulixarm.ros2_control.xacro`, located at:
 
 ```
 ~/ulixarm_tutorial/src/ulixarm_description/src/ulixarm_moveit_config/config/ulixarm.ros2_control.xacro
 ```
 
 :::danger
-Do **not** set $K_p$ or $K_d$ values outside the boundaries listed in the table below. Out-of-range values can cause joint instability and unpredictable robot motion.
+Do **not** set `Kp` or `Kd` values outside the boundaries listed in the table below. Out-of-range values can cause joint instability and unpredictable robot motion.
 
 Do **not** modify the `finger_right_joint` parameters.
 :::
 
 ### Admissible Parameter Ranges
 
-| Joint | $K_p$ range | $K_d$ range |
+| Joint | `Kp` range | `Kd` range |
 |---|---|---|
 | `joint1` | 20 – 300 | 0.5 – 3.0 |
 | `joint2` | 20 – 300 | 0.5 – 3.0 |
@@ -97,25 +97,25 @@ Edit the `Kp` and `Kd` values in each block to experiment with different behavio
 
 ## Experiments
 
-### Experiment 1 — Effect of $K_p$
+### Experiment 1 — Effect of `Kp`
 
-Set all $K_p$ values to their **lowest admissible value** and gently push the robot's gripper with your hand.
+Set all `Kp` values to their **lowest admissible value** and gently push the robot's gripper with your hand.
 
 > How does the robot feel? Does it resist your push or yield easily?
 
-Now set all $K_p$ values to their **highest admissible value** and repeat.
+Now set all `Kp` values to their **highest admissible value** and repeat.
 
 > What has changed? Think about the **spring analogy** — a stiffer spring resists displacement more strongly.
 
 ---
 
-### Experiment 2 — Effect of $K_d$
+### Experiment 2 — Effect of `Kd`
 
-Set all $K_d$ values to their **lowest admissible value** and gently displace the gripper, then release it.
+Set all `Kd` values to their **lowest admissible value** and gently displace the gripper, then release it.
 
 > What happens as the robot returns to its target position? Does it overshoot or oscillate?
 
-Now set all $K_d$ values to their **highest admissible value** and repeat.
+Now set all `Kd` values to their **highest admissible value** and repeat.
 
 > What has changed? Think about the **damper analogy** — a stronger damper dissipates energy faster and suppresses oscillations.
 
@@ -127,7 +127,7 @@ Now set all $K_d$ values to their **highest admissible value** and repeat.
 Once you have finished experimenting, restore all parameters to their default values using the table below.
 :::
 
-| Joint | $K_p$ (default) | $K_d$ (default) |
+| Joint | `Kp` (default) | `Kd` (default) |
 |---|---|---|
 | `joint1` | 200 | 2.0 |
 | `joint2` | 300 | 3.0 |

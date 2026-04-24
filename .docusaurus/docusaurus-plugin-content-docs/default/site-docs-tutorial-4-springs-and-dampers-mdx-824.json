@@ -1,0 +1,26 @@
+{
+  "id": "tutorial/springs-and-dampers",
+  "title": "Tutorial 4 — Springs and Dampers",
+  "description": "In this tutorial we will explore how different Kp and Kd values of a PD controller influence the behavior of the robot. We will start by discussing what happens under the hood, and then experiment directly on the hardware.",
+  "source": "@site/docs/tutorial/4-springs-and-dampers.mdx",
+  "sourceDirName": "tutorial",
+  "slug": "/tutorial/springs-and-dampers",
+  "permalink": "/docs/tutorial/springs-and-dampers",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Moving the robot (MoveGroup C++)",
+    "permalink": "/docs/tutorial/moving-the-robot-cpp copy"
+  },
+  "next": {
+    "title": "Tutorial 5 — Playing with Gravity",
+    "permalink": "/docs/tutorial/play-with-gravity"
+  }
+}

@@ -12,7 +12,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'Ulixarm',
   // tagline: "The research arm you've been looking for.",
-  tagline: "A long journey. The right destination.",
+  tagline: "Learning has never made so much fun!",
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

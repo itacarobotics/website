@@ -11,26 +11,6 @@
           "mainDocId": "intro",
           "docs": [
             {
-              "id": "concepts/Moveit2",
-              "path": "/docs/concepts/Moveit2",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "concepts/ros2-control",
-              "path": "/docs/concepts/ros2-control",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "concepts/Safety",
-              "path": "/docs/concepts/Safety",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "concepts/USB-to-CAN",
-              "path": "/docs/concepts/USB-to-CAN",
-              "sidebar": "tutorialSidebar"
-            },
-            {
               "id": "intro",
               "path": "/docs/intro",
               "sidebar": "tutorialSidebar"
@@ -56,23 +36,18 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "tutorial/springs-and-dampers",
+              "path": "/docs/tutorial/springs-and-dampers",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "tutorial/visualizing-the-robot",
               "path": "/docs/tutorial/visualizing-the-robot",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial/write-your-own-algorithms",
-              "path": "/docs/tutorial/write-your-own-algorithms",
-              "sidebar": "tutorialSidebar"
-            },
-            {
               "id": "/category/tutorial",
               "path": "/docs/category/tutorial",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "/category/concepts",
-              "path": "/docs/category/concepts",
               "sidebar": "tutorialSidebar"
             }
           ],

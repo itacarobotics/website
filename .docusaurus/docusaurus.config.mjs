@@ -5,7 +5,7 @@
  */
 export default {
   "title": "Ulixarm",
-  "tagline": "A long journey. The right destination.",
+  "tagline": "Learning has never made so much fun!",
   "favicon": "img/favicon.ico",
   "future": {
     "v4": {

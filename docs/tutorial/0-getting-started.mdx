@@ -14,6 +14,14 @@ This tutorial assumes you are running on **Ubuntu 24.04 LTS (Noble Numbat)** on 
 
 :::
 
+If you are a Windows user, you can simply install the WSL2 by opening PowerShell as an administrator and run the command:
+
+```bash
+wsl --install Ubuntu-24.04
+```
+
+Follow the directions and you should then see the WSL2 as a stand alone application.
+Run it and you are good to go!
 
 ---
 
@@ -110,14 +118,14 @@ The control pipeline of the robot requires the following packages to be installe
 
 ```bash
 sudo apt update
-sudo apt install -y \
-  ros-jazzy-moveit \
-  ros-jazzy-pinocchio \ 
-  ros-jazzy-ros2-control \
-  ros-jazzy-ros2-controllers \
-  ros-jazzy-joint-state-publisher \
-  ros-jazzy-joint-state-publisher-gui \
-  ros-jazzy-robot-state-publisher
+sudo apt install -y ros-jazzy-moveit
+sudo apt install -y ros-jazzy-pinocchio
+sudo apt install -y ros-jazzy-ros2-control
+sudo apt install -y ros-jazzy-ros2-control-cmake
+sudo apt install -y ros-jazzy-ros2-controllers
+sudo apt install -y ros-jazzy-joint-state-publisher
+sudo apt install -y ros-jazzy-joint-state-publisher-gui
+sudo apt install -y ros-jazzy-robot-state-publisher
 ```
 
 :::note

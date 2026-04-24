@@ -14,7 +14,7 @@ As introduced in the previous tutorial, each joint can be modeled as a virtual s
 
 At rest, this balance is described by:
 
-$$m \cdot g = k \cdot \delta x$$
+> **m · g = k · δx**
 
 The same effect occurs on a robot arm. When a joint holds a link against gravity, the gravity torque acts like an external disturbance — causing a steady-state position error that the PD controller alone cannot fully eliminate. The following demos will let you observe and compare this behavior directly on the hardware.
 
@@ -66,19 +66,17 @@ Observe the difference between the two and reflect on the following questions:
 
 > How large is the position error between the goal and the real pose?
 
-> Based on what you learned in Tutorial 4, how does increasing $K_p$ on `joint2` affect the error? Does the error ever fully vanish?
+> Based on what you learned in Tutorial 4, how does increasing `Kp` on `joint2` affect the error? Does the error ever fully vanish?
 
 ---
 
 ## Demo 2 — With Gravity Compensation
 
-As introduced in Tutorial 4, the MIT controller accepts a feed-forward torque input $\tau_{ff}$. This term allows the motor to apply a torque independently of the position and velocity error — making it an ideal channel for gravity compensation.
+As introduced in Tutorial 4, the MIT controller accepts a feed-forward torque input `tau_ff`. This term allows the motor to apply a torque independently of the position and velocity error — making it an ideal channel for gravity compensation.
 
-To compensate for gravity, $\tau_{ff}$ is set to the vector of gravity torques $\mathbf{g}(\mathbf{q})$, computed at each control loop using the [Pinocchio](https://github.com/stack-of-tasks/pinocchio) library:
+To compensate for gravity, `tau_ff` is set to the gravity torque vector `g(q)`, computed at each control loop via `pinocchio::computeGeneralizedGravity(q)`.
 
-$$\tau_{ff} = \mathbf{g}(\mathbf{q}) = \texttt{pinocchio::computeGeneralizedGravity}(\mathbf{q})$$
-
-Note that $\mathbf{g}(\mathbf{q})$ depends on the current robot configuration. Consider the difference in effort required at `joint2` when the arm is stretched vertically versus horizontally — the gravity torque changes significantly with pose.
+Note that `g(q)` depends on the current robot configuration. Consider the difference in effort required at `joint2` when the arm is stretched vertically versus horizontally — the gravity torque changes significantly with pose.
 
 In the `<hardware>` tag, set `use_gravity_compensation` to `true` and ensure `use_free_floating` remains `false`:
 

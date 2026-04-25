@@ -97,36 +97,34 @@ You can browse the full URDF of the UlixArm in the [`ulixarm_description`](https
 :::
 
 :::note
-You may notice `.xacro` files alongside the URDF. **Xacro** (XML Macros) is a preprocessor for URDF that introduces support for variables, math expressions, and reusable macros — keeping robot descriptions concise and maintainable. Xacro files are automatically compiled into standard URDF at runtime.
+You may notice `.xacro` files alongside the URDF. **Xacro** (XML Macros) is a preprocessor for URDF that introduces support for variables, math expressions, and reusable macros, keeping robot descriptions concise and maintainable. Xacro files are automatically compiled into standard URDF at runtime.
 :::
 
-:::tip
 For a step-by-step guide on writing your own URDF from scratch, refer to the [official ROS 2 URDF tutorial](https://docs.ros.org/en/jazzy/Tutorials/Intermediate/URDF/URDF-Main.html).
-:::
 
 ---
 
 ## Run the Demo
 
-### 1. Clone the repository
+To get started with the first tutorial, you first have to clone the repository
 
 ```bash
 git clone https://github.com/itacarobotics/ulixarm_ros2.git
 ```
 
-### 2. Navigate into the repository
+navigate into the repository
 
 ```bash
 cd ulixarm_ros2
 ```
 
-### 3. Build the packages
+ROS2 packages are build with colcon. To build the ROS2 workspace run
 
 ```bash
 colcon build
 ```
 
-### 4. Source the environment
+Every ROS2 workspace needs to be sourced whenever you open a new terminal. To source the environment run
 
 ```bash
 source install/setup.bash
@@ -145,9 +143,7 @@ source ~/.bashrc
 You must source the `ROS 2` and `ulixarm_ros2` workspace in **every new terminal** before running any ROS 2 commands. If you completed the [Getting Started](../getting-started#source-the-environment) guide, this is already handled automatically via your `.bashrc`.
 :::
 
-### 5. Launch the demo
-
-To launch the demo run the command 
+Finally, you can launch the demo
 
 ```bash
 ros2 launch tutorial display.launch.py

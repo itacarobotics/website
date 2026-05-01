@@ -134,7 +134,7 @@ Plug in the USB device to your machine. Next, follow the instructions distinguis
 
 ---
 
-## 3. Linux Users (continue)
+## 4. Linux Users (continue)
 
 Check if the device is visible by running
 
@@ -154,11 +154,11 @@ sudo usermod -aG dialout $USER  # (recommended)
 
 ---
 
-## 3. Windows Users with WSL2 (continue)
+## 4. Windows Users with WSL2 (continue)
 
 When using WSL 2, USB devices (including serial/COM ports) are not accessible by default. The `usbipd-win` tool bridges this gap by forwarding USB devices from Windows into the WSL environment.
 
-### 3.1 Install `usbipd-win` in PowerShell (as Administrator)
+### 4.1 Install `usbipd-win` in PowerShell (as Administrator)
 
 Open **PowerShell as Administrator** and run:
 
@@ -168,7 +168,7 @@ winget install --interactive --exact dorssel.usbipd-win
 
 > A firewall rule named `usbipd` is created automatically, allowing connections on TCP port **3240**. If you use a third-party firewall, ensure this port is permitted.
 
-### 3.2 Install USB/IP tools inside WSL (Ubuntu)
+### 4.2 Install USB/IP tools inside WSL (Ubuntu)
 
 Inside your WSL Ubuntu terminal:
 
@@ -248,7 +248,7 @@ sudo usermod -aG dialout $USER  # (recommended)
 
 > Log out and back in (or restart WSL) for the group change to take effect.
 
-### 3.4 Detach the device when done (PowerShell)
+### 4.4 Detach the device when done (PowerShell)
 
 ```powershell
 usbipd detach --busid <BUSID>
@@ -256,7 +256,7 @@ usbipd detach --busid <BUSID>
 
 > After a reboot or if the device is replugged, you must run `usbipd attach` again. The `bind` step does **not** need to be repeated.
 
-### 3.5 Auto-attach on reconnect (optional)
+### 4.5 Auto-attach on reconnect (optional)
 
 ```powershell
 usbipd attach --wsl --busid <BUSID> --auto-attach

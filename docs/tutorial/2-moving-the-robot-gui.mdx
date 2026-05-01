@@ -117,9 +117,9 @@ The LEDs will turn green and RViz will open displaying the robot model in the cu
 #### Troubleshooting
 If the LEDs are still RED or the position of the robot in RViz is in the zero initialized (straight up) check any errors in the terminal.
 You might probably find the error: "Failed to open Serial port". In that case check:
-1. All cables are correctly pluged In
+1. All cables are correctly pluged in
 2. You have granted permissions to access the serial port (check [grant port permissions](/docs/tutorial/getting-started#step-6--grant-serial-port-permissions-wsl))
-
+3. If you are a Windows user, check if **usbipd** is running in a PowerShell
 
 ---
 
@@ -184,3 +184,9 @@ In the *Context* tab in the *MotionPlanning* window, select `pilz_industrial_mot
 
 
 > Is the resulting trajectory linear in the joint space? Why?
+
+## Power OFF
+
+:::danger
+When powering off the robot, **keep with one hand the robot arm**, and with the other one press the emergency button. Otherwise, it will fall down, damaging the mechanical structure.
+:::

@@ -124,9 +124,33 @@ sudo apt install -y ros-jazzy-joint-state-publisher-gui
 sudo apt install -y ros-jazzy-robot-state-publisher
 ```
 
-:::note
-If you are running on a **native Linux machine**, or you just want to test out the simulation examples, you can skip to the next page.
-:::
+---
+
+## 3 Connect the COM device
+
+Plug in the USB device to your machine. Next, follow the instructions distinguishing if you are a Linux or Windows user.
+
+![USB connection](/img/tutorial/0-1.png)
+
+---
+
+## 3. Linux Users (continue)
+
+Check if the device is visible by running
+
+```bash
+ls /dev/ttyACM0
+```
+You should see the output `/dev/ttyACM0`
+
+
+Afterwards, you have to **grant permissions** to access the serial port. You can either run the first command, but you will have to do so every time you open a new terminal. The second command is permanent and has to be done just once.
+
+```bash
+sudo chmod 666 /dev/ttyACM0
+# Or add your user to the dialout group (permanent):
+sudo usermod -aG dialout $USER  # (recommended) 
+```
 
 ---
 
@@ -155,59 +179,71 @@ sudo update-alternatives --install /usr/local/bin/usbip usbip \
   /usr/lib/linux-tools/*/usbip 20
 ```
 
-### 3.3 Connect a COM device — step by step
-
-#### Step 1 — Plug in your USB/serial device to the Windows host.
-
-#### Step 2 — List all connected USB devices (PowerShell as Administrator):
+#### Step 1 — List all connected USB devices
+Open PowerShell **as Administrator** and run
 
 ```powershell
 usbipd list
 ```
 
-You will see output like:
+You will see an output like:
 
+```powershell
+Connected: 
+BUSID VID:PID     DEVICE                          STATE
+1-3   0bda:0129   Realtek USB 2.0 Card Reader     Not shared
+1-8   2b7e:b673   720p HD Camera                  Not shared 
+1-9   2e88:4603   USB Serial Device (COM3)        Not shared    <-- THIS
+1-10  8087:0026   Intel(R) Wireless Bluetooth(R)  Not shared
 ```
-BUSID  VID:PID    DEVICE                          STATE
-1-3    0403:6001  USB Serial Converter             Not shared
-2-1    046d:c52b  USB Input Device                 Not shared
-```
 
-Find your COM device (e.g., FTDI, CH340, CP210x) and note its **BUSID**.
 
-#### Step 3 — Bind (share) the device — requires Administrator:
+Find the COM device *USB Serial Device (COM3)* and note its **BUSID**.
+
+#### Step 2 — Bind (share) the device
+In the same PowerShell session with Administrator rights run
 
 ```powershell
 usbipd bind --busid <BUSID>
 # Example:
-usbipd bind --busid 1-3
+usbipd bind --busid 1-9
 ```
 
 > Binding is **persistent** — you only need to do this once per device, even after reboots.
 
-#### Step 4 — Attach the device to WSL (PowerShell, no Administrator required after bind):
+#### Step 3 — Open the WSL
+Open the WSL2 application, which you installed before. You can find it in your apps by clicking the <kbd>⊞ Win</kbd> key and typing "WSL".
+This step is important to attach the device to the WSL.
+
+#### Step 4 — Attach the device to WSL
+
+In PowerShell run the following command to bind the port to the WSL.
+
+:::note
+This step has do be done **every time** the USB port is connected.
+:::
 
 ```powershell
 usbipd attach --wsl --busid <BUSID>
 # Example:
-usbipd attach --wsl --busid 1-3
+usbipd attach --wsl --busid 1-9
 ```
 
-#### Step 5 — Verify inside WSL:
+#### Step 5 — Verify inside WSL
 
 ```bash
-lsusb        # check the device appears
-ls /dev/ttyUSB*   # or /dev/ttyACM* depending on the device
+ls /dev/ttyACM0
 ```
 
-Your device will typically appear as `/dev/ttyUSB0` or `/dev/ttyACM0`.
+If it works you will see `/dev/ttyACM0`.
 
-#### Step 6 — Grant serial port permissions (WSL):
+#### Step 6 — Grant serial port permissions (WSL)
+You have to **grant permissions** to access the serial port. You can either run the first command, but you will have to do so every time you open a new terminal. The second command is permanent and has to be done just once.
 
 ```bash
-sudo chmod 666 /dev/ttyUSB0
+sudo chmod 666 /dev/ttyACM0
 # Or add your user to the dialout group (permanent):
-sudo usermod -aG dialout $USER
+sudo usermod -aG dialout $USER  # (recommended) 
 ```
 
 > Log out and back in (or restart WSL) for the group change to take effect.
@@ -226,6 +262,6 @@ usbipd detach --busid <BUSID>
 usbipd attach --wsl --busid <BUSID> --auto-attach
 ```
 
-This keeps the device attached to WSL and automatically re-attaches if it resets or is replugged (useful for microcontrollers that reset on flash).
+This keeps the device attached to WSL and automatically re-attaches if it resets or is replugged.
 
 ---

@@ -124,6 +124,10 @@ ROS2 packages are build with colcon. To build the ROS2 workspace run
 colcon build
 ```
 
+:::note
+Remember to source the ROS environment if not already added to the `.bashrc`. As a reminder this can be done by running `source /opt/ros/jazzy/setup.bash`
+:::
+
 Every ROS2 workspace needs to be sourced whenever you open a new terminal. To source the environment run
 
 ```bash
@@ -140,13 +144,13 @@ source ~/.bashrc
 ```
 
 :::warning
-You must source the `ROS 2` and `ulixarm_ros2` workspace in **every new terminal** before running any ROS 2 commands. If you completed the [Getting Started](../getting-started#source-the-environment) guide, this is already handled automatically via your `.bashrc`.
+You must source the `ROS` and `ulixarm_ros2` workspace in **every new terminal** before running any ROS 2 commands. If you completed the [Getting Started](../getting-started#source-the-environment) guide, this is already handled automatically via your `.bashrc`.
 :::
 
 Finally, you can launch the demo
 
 ```bash
-ros2 launch tutorial display.launch.py
+ros2 launch demos display.launch.py
 ```
 
 RViz and the `joint_state_publisher_gui` will open. If you do not see the robot model, follow the steps below.

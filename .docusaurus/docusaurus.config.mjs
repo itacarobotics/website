@@ -86,7 +86,7 @@ export default {
           "type": "docSidebar",
           "sidebarId": "tutorialSidebar",
           "position": "left",
-          "label": "Ulixarm Research Kit"
+          "label": "Ulixarm-Research-Kit"
         },
         {
           "href": "https://github.com/itacarobotics",

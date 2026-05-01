@@ -94,7 +94,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Ulixarm Research Kit',
+            label: 'Ulixarm-Research-Kit',
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {

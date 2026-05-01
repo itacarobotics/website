@@ -10,39 +10,64 @@ In this tutorial we will make the real robot move using MoveIt 2 and RViz. Follo
 
 ## Hardware Setup
 
+The Ulixarm-Research-Kit includes
+- 220 AC Cable
+- USB-C Cable
+- XT30 2+2 Cable
+- Power-Brick
+
+![mount](/img/tutorial/2-1.png)
+
+
 ### 1. Mount the Robot
 
 Securely fix the robot to a table in the position shown in the picture below.
 
-{/* ![Robot mounted on table](./static/img/robot_mount.jpg) */}
+![mount](/img/tutorial/2-2.png)
 
 :::danger
 The robot must be fixed **at least 1.0 meter away** from people and objects at all times. Never operate the robot in an unsecured environment.
 :::
 
-### 2. Press the Emergency Button
+### 3. Connect the XT30 2+2 Cable to the Robot
 
+![robot cable](/img/tutorial/2-3.png)
+
+### 4. Connect the XT30 2+2 Cable to the Power-Brick
+
+:::danger
 Press the emergency button **before** connecting any cables to prevent unexpected motion during startup.
+:::
 
-### 3. Connect the Power Source
+![power brick cable](/img/tutorial/2-5.png)
+
+### 5. Connect the Power Source
 
 Plug the power cable into the outlet.
 
-### 4. Connect the USB-C Cable
+![power cable](/img/tutorial/2-4.png)
 
-Connect the USB-C cable from your machine to the control brick.
 
-:::warning
-Ensure the USB-C cable is long enough to maintain the **1.0 meter safety clearance** between the robot and your workstation.
-:::
+### 6. Connect the USB-C Cable
 
-### 5. Connect the Robot
+Connect the USB-C cable from your machine to the Power-Brick.
 
-{/* Add connection steps here */}
+![usb-c cable](/img/tutorial/2-6.png)
+
+### Final Check
+
+At this point your setup should look like this. **Make sure to keep the 1 meter distance!**
+
+![final setup](/img/tutorial/2-7.png)
+
+
+
 
 ---
 
 ## Run the Demo
+
+### Clone and Build the Repository
 
 If you haven't already done so in the previous tutorial, clone the tutorial repository:
 
@@ -68,40 +93,92 @@ Source the environment:
 source install/setup.bash
 ```
 
+### Place the Robot
+
 :::warning
-Before launching the demo, **rotate the emergency button** to release it and re-enable motor power.
+Before launching the demo, place the robot in the following position and **rotate the emergency button** to release it and enable motor power.
 :::
 
-Launch the demo:
+![robot start position](/img/tutorial/2-8.png)
+
+When the robot is powered, a **RED LED** turns on at each joint. This indicates that the motors are armed, but not ativated yet.
+
+#### Launch the demo
 
 ```bash
-ros2 launch exercise_2 demo.launch.py
+ros2 launch demos moveit_rviz.launch.py
 ```
 
-RViz will open displaying the robot model along with an interactive marker you can use to set the goal pose.
+The LEDs will turn green and RViz will open displaying the robot model in the current position.
+
+![Rviz start screen](/img/tutorial/2-9.png)
+
+
+#### Troubleshooting
+If the LEDs are still RED or the position of the robot in RViz is in the zero initialized (straight up) check any errors in the terminal.
+You might probably find the error: "Failed to open Serial port". In that case check:
+1. All cables are correctly pluged In
+2. You have granted permissions to access the serial port (check [grant port permissions](/docs/tutorial/getting-started#step-6--grant-serial-port-permissions-wsl))
+
 
 ---
 
 ## Planning and Executing Trajectories
 
-### Plan a Trajectory
+You can now plan and execute trajectories from the RViz GUI.
 
-{/* Add planning instructions here */}
+### Bring the robot in the `ready` position
+In the `MotionPlanning` pannel on the left, click on the `Goal State:` drop-down menu and select the "ready" entry. You will see the orange robot (the goal query) like in the image below. Then click on `Plan` to plan the movement and afterwards on `Execute` to send the joint trajectory to the motor controller. The robot will move in the "ready" position.
 
-### Execute a Trajectory
+![ready position](/img/tutorial/2-10.png)
 
-{/* Add execution instructions here */}
 
----
+### Plan and Execute a Trajectory
+
+You can now drag and rotate the marker to set a new goal position. Click on `Plan` and then on `Execute` to move the robot.
+
+![ready position](/img/tutorial/2-11.png)
+
+
+<div style={{textAlign: 'center', marginTop: '2rem', marginBottom: '2rem'}}>
+  <video autoPlay loop muted playsInline width="90%">
+    <source src="/img/tutorial/2-2.mp4" type="video/mp4" />
+  </video>
+</div>
+
+--- 
 
 ## The Pilz Industrial Motion Planner
 
-MoveIt 2 supports multiple motion planners. In this tutorial we use the **Pilz Industrial Motion Planner**, which provides deterministic, geometry-based planners well suited for industrial manipulators.
+MoveIt 2 supports multiple motion planners. A simple, yet effective, point to point motion planner is the **Pilz Industrial Motion Planner**. It is not the default motion planner when you start RViz. To set it, click on the *Context* tab in the *MotionPlanning* window. Select `pilz_industrial_motion_planner` and `PTP` respectively.
 
-### PTP — Point-to-Point
+![ready position](/img/tutorial/2-12.png)
 
-{/* Describe PTP motion: joint-space interpolation, use cases */}
 
-### LIN — Linear
 
-{/* Describe LIN motion: Cartesian linear interpolation, use cases */}
+### Point-to-Point (PTP)
+
+A Point-to-Point trajectory, is a trajectory planned in the joint space. That means that the inverse geometry is computed for the goal position and the trajectory is generated by linearly interpolating (in space, not in time) the start and goal joint angles.
+
+
+<div style={{textAlign: 'center', marginTop: '2rem', marginBottom: '2rem'}}>
+  <video autoPlay loop muted playsInline width="90%">
+    <source src="/img/tutorial/2-3.mp4" type="video/mp4" />
+  </video>
+</div>
+
+
+> Is the resulting trajectory linear in the task space? Why?
+
+### Linear (LIN)
+
+A Linear trajectory, is a trajectory planned in the task space. That means that the start and goal pose of the end-effector are linear interpolated and for each way-point the inverse geometry is computed. The joint trajectory is the set of joint angles for each way-point.
+
+<div style={{textAlign: 'center', marginTop: '2rem', marginBottom: '2rem'}}>
+  <video autoPlay loop muted playsInline width="90%">
+    <source src="/img/tutorial/2-4.mp4" type="video/mp4" />
+  </video>
+</div>
+
+
+> Is the resulting trajectory linear in the joint space? Why?

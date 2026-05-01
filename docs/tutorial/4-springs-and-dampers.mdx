@@ -34,13 +34,13 @@ Together, `Kp` and `Kd` define how stiff and how damped the joint behavior feels
 ## Run the Demo
 
 :::note
-If you haven't cloned the tutorial repository yet, refer to [Tutorial 1 — Visualizing the Robot](docs/tutorial/1-visualizing-the-robot.mdx).
+If you haven't cloned the ulixarm_ros2 repository yet, refer to [Tutorial 1 — Visualizing the Robot](docs/tutorial/1-visualizing-the-robot.mdx).
 :::
 
 Open a terminal and navigate to the tutorial repository:
 
 ```bash
-cd ulixarm_tutorial
+cd ulixarm_ros2
 ```
 
 Optionally, open the project in Visual Studio Code:
@@ -91,17 +91,10 @@ Each joint tag in the `ulixarm.ros2_control.xacro` is defined by a block like th
 </joint>
 ```
 
-You can edit the `Kp` and `Kd` gains in each joint block.
-To apply the changes you first have to build the packages. 
-Remember to build the package from the root folder of the project
-
-```bash
-cd ~/ulixarm_tutorial
-```
-
-```bash
-colcon build
-```
+You can edit the `Kp` and `Kd` gains in each joint block. 
+:::info
+To apply the changes you first have to build the packages. Remember to build the package from the root folder of the project
+:::
 
 
 
@@ -113,9 +106,21 @@ colcon build
 
 Set all `Kp` values to their **lowest admissible value** and gently push the robot's gripper with your hand.
 
+```bash
+cd ~/ulixarm_ros2
+colcon build
+ros2 launch demos moveit_rviz.launch.py
+```
+
 > How does the robot feel? Does it resist your push or yield easily?
 
 Now set all `Kp` values to their **highest admissible value** and repeat.
+
+```bash
+cd ~/ulixarm_ros2
+colcon build
+ros2 launch demos moveit_rviz.launch.py
+```
 
 > What has changed? Think about the **spring analogy**, a stiffer spring resists displacement more strongly.
 
@@ -125,9 +130,21 @@ Now set all `Kp` values to their **highest admissible value** and repeat.
 
 Set all `Kd` values to their **lowest admissible value** and gently displace the gripper, then release it.
 
+```bash
+cd ~/ulixarm_ros2
+colcon build
+ros2 launch demos moveit_rviz.launch.py
+```
+
 > What happens as the robot returns to its target position? Does it overshoot or oscillate?
 
 Now set all `Kd` values to their **highest admissible value** and repeat.
+
+```bash
+cd ~/ulixarm_ros2
+colcon build
+ros2 launch demos moveit_rviz.launch.py
+```
 
 > What has changed? Think about the **damper analogy**, a stronger damper dissipates energy faster and suppresses oscillations.
 

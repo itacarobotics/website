@@ -20,30 +20,6 @@ A `<link>` represents a rigid body in the robot. Each link supports up to three 
 | `<collision>` | Defines the simplified geometry used for collision detection. |
 | `<inertial>` | Specifies the mass and inertia tensor used in physics simulation. |
 
-:::note
-The **base link** omits the `<inertial>` tag because it is fixed to the world and does not participate in dynamics simulation.
-:::
-
-**Base link** (no `<inertial>` tag):
-
-```xml
-<link name="manipulator_base_link">
-  <visual>
-    <origin xyz="0. 0. 0."/>
-    <geometry>
-      <mesh filename="package://ulixarm_description/meshes/visual/base_link.stl"/>
-    </geometry>
-  </visual>
-  <collision>
-    <origin xyz="0. 0. 0."/>
-    <geometry>
-      <mesh filename="package://ulixarm_description/meshes/collision/base_link.stl"/>
-    </geometry>
-  </collision>
-</link>
-```
-
-**Standard link** (with `<inertial>` tag):
 
 ```xml
 <link name="manipulator_link1">

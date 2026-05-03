@@ -16,7 +16,7 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Tutorial 3: Moving the robot (MoveGroup C++)",
+    "title": "Tutorial 3: Moving the Robot (MoveGroup C++ API)",
     "permalink": "/docs/tutorial/moving-the-robot-cpp copy"
   },
   "next": {

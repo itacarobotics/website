@@ -1,7 +1,7 @@
 {
   "id": "tutorial/moving-the-robot-cpp copy",
-  "title": "Tutorial 3: Moving the robot (MoveGroup C++)",
-  "description": "Controlling the robot from a program, is the backbone of any automation process. In ROS2 and Moveit, we can use the MoveGroup C++ API to set the desired pose target and many other parameters.",
+  "title": "Tutorial 3: Moving the Robot (MoveGroup C++ API)",
+  "description": "Controlling a robot from a program is the foundation of any automation pipeline. In ROS 2 and MoveIt 2, the MoveGroup C++ API allows you to define pose targets, tune motion parameters, and select planners.",
   "source": "@site/docs/tutorial/3-moving-the-robot-cpp copy.mdx",
   "sourceDirName": "tutorial",
   "slug": "/tutorial/moving-the-robot-cpp copy",

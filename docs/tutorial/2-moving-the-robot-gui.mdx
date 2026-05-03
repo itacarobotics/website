@@ -50,7 +50,11 @@ Plug the power cable into the outlet.
 
 ### 6. Connect the USB-C Cable
 
-Connect the USB-C cable from your machine to the Power-Brick.
+Connect the USB-C cable from your machine to the Power-Brick. 
+
+:::note
+Check out the tutorial [**Connect the COM device**](/docs/tutorial/getting-started#3-connect-the-com-device) to refresh how to connect to the Port.
+:::
 
 ![usb-c cable](/img/tutorial/2-6.png)
 
@@ -67,7 +71,7 @@ At this point your setup should look like this. **Make sure to keep the 1 meter 
 
 ## Run the Demo
 
-### Clone and Build the Repository
+### Clone Repository (if not already)
 
 If you haven't already done so in the previous tutorial, clone the tutorial repository:
 
@@ -87,7 +91,7 @@ Build the packages:
 colcon build
 ```
 
-Source the environment:
+Source the environment, if not already added to the .bashrc
 
 ```bash
 source install/setup.bash
@@ -119,7 +123,7 @@ If the LEDs are still RED or the position of the robot in RViz is in the zero in
 You might probably find the error: "Failed to open Serial port". In that case check:
 1. All cables are correctly pluged in
 2. You have granted permissions to access the serial port (check [grant port permissions](/docs/tutorial/getting-started#step-6--grant-serial-port-permissions-wsl))
-3. If you are a Windows user, check if **usbipd** is running in a PowerShell
+3. If you are a Windows user, check if **usbipd** has been attached to the PowerShell
 
 ---
 

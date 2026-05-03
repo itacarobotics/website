@@ -20,7 +20,7 @@
     "permalink": "/docs/tutorial/visualizing-the-robot"
   },
   "next": {
-    "title": "Tutorial 3: Moving the robot (MoveGroup C++)",
+    "title": "Tutorial 3: Moving the Robot (MoveGroup C++ API)",
     "permalink": "/docs/tutorial/moving-the-robot-cpp copy"
   }
 }

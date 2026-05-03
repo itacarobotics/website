@@ -1,0 +1,131 @@
+---
+sidebar_position: 4
+---
+
+# Tutorial 3: Moving the Robot (MoveGroup C++ API)
+
+Controlling a robot from a program is the foundation of any automation pipeline. In ROS 2 and MoveIt 2, the **MoveGroup C++ API** allows you to define pose targets, tune motion parameters, and select planners.
+
+---
+
+## Prerequisites
+
+Before proceeding, make sure you have completed Tutorials 1 and 2, and that the `ulixarm_ros2` repository is cloned and available on your machine.
+
+---
+
+## 1. Launch the Demo
+
+#### Navigate to the Repository
+
+```bash
+cd ulixarm_ros2
+```
+
+#### Launch MoveIt 2 and RViz
+
+For this tutorial we will need to open two sessions. To do so, we will create a new session using tmux
+
+```bash
+tmux new -s demo
+```
+
+And run
+
+```bash
+ros2 launch demos moveit_rviz.launch.py
+```
+
+#### Run the Motion Demo
+
+Now press `ctrl+b` and `%` to split the screen and run
+
+```bash
+ros2 run demos moveit_cpp_demo
+```
+
+:::tip
+To move between tabs, use `ctrl+b` and the `left` or `right` key.
+:::
+
+The robot will execute a sequence of predefined poses:
+
+<div style={{textAlign: 'center', marginTop: '2rem', marginBottom: '2rem'}}>
+  <video autoPlay loop muted playsInline width="80%">
+    <source src="/img/tutorial/3-1.mp4" type="video/mp4" />
+  </video>
+</div>
+
+---
+
+## 2. Edit the Code
+
+To experiment with custom poses, open the demo source file:
+
+```
+ulixarm_ros2/src/demos/src/moveit_cpp_demo.cpp
+```
+
+Inside, you will find a `targets` vector that defines the sequence of poses the robot follows:
+
+```cpp
+// List of targets
+std::vector<TargetConfig> targets = {
+
+  // Pose 1
+  {
+    make_pose(1.0, 0.0, 0.0, 0.0,  0.0, 0.30, 0.10),  // [rot: x, y, z, w | pos: x, y, z]
+    0.5,    // Velocity scaling factor
+    0.5,    // Acceleration scaling factor
+    "PTP"   // Planner ID
+  },
+
+  // Pose 2
+  { ... },
+
+};
+```
+
+Each entry in the vector represents one target pose. The robot moves through them in order.
+
+---
+
+## 3. Adding a New Pose
+
+To add a new pose, insert a new entry into the `targets` vector following the structure below.
+
+### Pose Parameters
+
+| Parameter | Type | Description | Example |
+|---|---|---|---|
+| `rot_x` | `double` | Quaternion X component of orientation | `0.0` |
+| `rot_y` | `double` | Quaternion Y component of orientation | `0.0` |
+| `rot_z` | `double` | Quaternion Z component of orientation | `0.707` |
+| `rot_w` | `double` | Quaternion W component of orientation | `0.707` |
+| `pos_x` | `double` | Target X position in meters | `0.4` |
+| `pos_y` | `double` | Target Y position in meters | `0.1` |
+| `pos_z` | `double` | Target Z position in meters | `0.3` |
+| `vel_scaling` | `double` | Fraction of maximum velocity `(0.0–1.0)` | `0.5` |
+| `acc_scaling` | `double` | Fraction of maximum acceleration `(0.0–1.0)` | `0.5` |
+| `planner_id` | `string` | Motion planner to use | `"PTP"` |
+
+### Example: Adding a Third Pose
+
+```cpp
+// Pose 3 — custom target
+{
+  make_pose(0.0, 0.0, 0.707, 0.707,  0.4, 0.1, 0.3),  // 90° rotation, positioned at (0.4, 0.1, 0.3)
+  0.4,    // 40% of max velocity
+  0.4,    // 40% of max acceleration
+  "PTP"   // Point-to-Point planner
+},
+```
+
+---
+
+## 4. Available Planners
+
+| Planner ID | Description |
+|---|---|
+| `"PTP"` | Point-to-Point — direct motion in joint space |
+| `"LIN"` | Linear — straight-line motion in Cartesian space |

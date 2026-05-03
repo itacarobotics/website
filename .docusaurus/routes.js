@@ -3,41 +3,6 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/__docusaurus/debug',
-    component: ComponentCreator('/__docusaurus/debug', '5ff'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/config',
-    component: ComponentCreator('/__docusaurus/debug/config', '5ba'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/content',
-    component: ComponentCreator('/__docusaurus/debug/content', 'a2b'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/globalData',
-    component: ComponentCreator('/__docusaurus/debug/globalData', 'c3c'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/metadata',
-    component: ComponentCreator('/__docusaurus/debug/metadata', '156'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/registry',
-    component: ComponentCreator('/__docusaurus/debug/registry', '88c'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/routes',
-    component: ComponentCreator('/__docusaurus/debug/routes', '000'),
-    exact: true
-  },
-  {
     path: '/blog',
     component: ComponentCreator('/blog', 'e21'),
     exact: true
@@ -114,15 +79,15 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', '492'),
+    component: ComponentCreator('/docs', '43b'),
     routes: [
       {
         path: '/docs',
-        component: ComponentCreator('/docs', '7b9'),
+        component: ComponentCreator('/docs', 'a44'),
         routes: [
           {
             path: '/docs',
-            component: ComponentCreator('/docs', '5d7'),
+            component: ComponentCreator('/docs', '624'),
             routes: [
               {
                 path: '/docs/category/tutorial',
@@ -143,8 +108,8 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/tutorial/moving-the-robot-cpp copy',
-                component: ComponentCreator('/docs/tutorial/moving-the-robot-cpp copy', 'cd0'),
+                path: '/docs/tutorial/moving-the-robot-cpp',
+                component: ComponentCreator('/docs/tutorial/moving-the-robot-cpp', 'dd8'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },

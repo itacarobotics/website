@@ -21,6 +21,15 @@ wsl --install Ubuntu-24.04
 Follow the directions and you should then see the WSL2 as a stand alone application.
 Run it and you are good to go!
 
+{/* Otherwise, if you have already installed a WSL before, you can install a new one alongside. To do so, run
+
+```bash
+wsl --install -d Ubuntu-24.04
+```
+
+And to open the specific one */}
+
+
 ---
 
 ## 1. Install ROS 2
@@ -152,6 +161,8 @@ sudo chmod 666 /dev/ttyACM0
 sudo usermod -aG dialout $USER  # (recommended) 
 ```
 
+> Log out and back in for the group change to take effect.
+
 ---
 
 ## 4. Windows Users with WSL2 (continue)
@@ -180,7 +191,7 @@ sudo update-alternatives --install /usr/local/bin/usbip usbip \
 ```
 
 #### Step 1 — List all connected USB devices
-Open PowerShell **as Administrator** and run
+Close and reopen PowerShell **as Administrator** and run
 
 ```powershell
 usbipd list

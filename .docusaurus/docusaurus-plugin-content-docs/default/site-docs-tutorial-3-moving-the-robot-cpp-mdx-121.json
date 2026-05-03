@@ -1,7 +1,7 @@
 {
   "id": "tutorial/moving-the-robot-cpp",
-  "title": "Moving the robot (MoveGroup C++)",
-  "description": "",
+  "title": "Tutorial 3: Moving the Robot (MoveGroup C++ API)",
+  "description": "Controlling a robot from a program is the foundation of any automation pipeline. In ROS 2 and MoveIt 2, the MoveGroup C++ API allows you to define pose targets, tune motion parameters, and select planners.",
   "source": "@site/docs/tutorial/3-moving-the-robot-cpp.mdx",
   "sourceDirName": "tutorial",
   "slug": "/tutorial/moving-the-robot-cpp",
@@ -10,17 +10,17 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "sidebarPosition": 5,
+  "sidebarPosition": 4,
   "frontMatter": {
-    "sidebar_position": 5
+    "sidebar_position": 4
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Moving the robot (MoveGroup C++)",
-    "permalink": "/docs/tutorial/moving-the-robot-cpp copy"
+    "title": "Tutorial 2: Moving the Robot (MoveIt 2 + RViz)",
+    "permalink": "/docs/tutorial/moving-the-robot-gui"
   },
   "next": {
-    "title": "Concepts",
-    "permalink": "/docs/category/concepts"
+    "title": "Tutorial 4: Springs and Dampers",
+    "permalink": "/docs/tutorial/springs-and-dampers"
   }
 }

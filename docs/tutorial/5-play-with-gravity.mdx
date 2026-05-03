@@ -25,10 +25,10 @@ The same effect occurs on a robot arm. When a joint holds a link against gravity
 Open a terminal and navigate to the tutorial repository:
 
 ```bash
-cd ~/ulixarm_ros2
+cd ulixarm_ros2
 ```
 
-And open the project with your favourite code editor. To open it in VSCode run
+You can open the project with your favourite code editor. To open it in VSCode run
 
 ```bash
 code .
@@ -38,7 +38,7 @@ code .
 Open the file at the following path:
 
 ```
-~/ulixarm_tutorial/src/ulixarm_description/src/ulixarm_moveit_config/config/ulixarm.ros2_control.xacro
+~/ulixarm_ros2/src/ulixarm_description/src/ulixarm_moveit_config/config/ulixarm.ros2_control.xacro
 ```
 
 In the `<hardware>` tag, set `use_gravity_compensation` to `false` and ensure `use_free_floating` is also set to `false`:
@@ -79,7 +79,7 @@ Observe the difference between the two and reflect on the following questions:
 
 ### Experiment 2 - With Gravity Compensation
 
-As introduced in Tutorial 4, the MIT controller accepts a feed-forward torque input `tau_ff`. This term allows the motor to apply a torque independently of the position and velocity error — making it an ideal channel for gravity compensation.
+As introduced in Tutorial 4, the MIT controller accepts a feed-forward torque input `tau_ff`. This term allows the motor to apply a torque independently of the position and velocity error, making it an ideal channel for gravity compensation.
 
 To compensate for gravity, `tau_ff` is set to the gravity torque vector `g(q)`, computed at each control loop via `pinocchio::computeGeneralizedGravity(q)`.
 

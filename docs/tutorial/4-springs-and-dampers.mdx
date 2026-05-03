@@ -100,15 +100,23 @@ To apply the changes you first have to build the packages. Remember to build the
 
 ## Experiments
 
+:::warning
+Make sure you have followed Tutorial 1 and 2. And that the robot operates in a safe environment.
+:::
+
 ### Experiment 1
 
 #### Effect of low `Kp`
 
-Set all `Kp` values to their **lowest admissible value**, then build and launch
+Set all `Kp` values to their **lowest admissible value**. To apply the changes, build the workspace
 
 ```bash
-cd ~/ulixarm_ros2
 colcon build
+```
+
+To launch the demo, run 
+
+```bash
 ros2 launch demos moveit_rviz.launch.py
 ```
 
@@ -124,11 +132,15 @@ Now gently push the robot's gripper with your hand.
 
 #### Effect of high `Kp`
 
-Now set all `Kp` values to their **highest admissible value** and repeat.
+Now set all `Kp` values to their **highest admissible value**. To apply the changes, build the workspace
 
 ```bash
-cd ~/ulixarm_ros2
 colcon build
+```
+
+To launch the demo, run 
+
+```bash
 ros2 launch demos moveit_rviz.launch.py
 ```
 
@@ -146,11 +158,15 @@ ros2 launch demos moveit_rviz.launch.py
 
 #### Effect of low `Kd`
 
-Set all `Kd` values to their **lowest admissible value**, then build and launch
+Set all `Kd` values to their **lowest admissible value**. To apply the changes, build the workspace
 
 ```bash
-cd ~/ulixarm_ros2
 colcon build
+```
+
+To launch the demo, run 
+
+```bash
 ros2 launch demos moveit_rviz.launch.py
 ```
 
@@ -167,11 +183,15 @@ Gently displace the gripper, then release it.
 
 #### Effect of high `Kd`
 
-Now set all `Kd` values to their **highest admissible value** and repeat.
+Now set all `Kd` values to their **highest admissible value**. To apply the changes, build the workspace
 
 ```bash
-cd ~/ulixarm_ros2
 colcon build
+```
+
+To launch the demo, run 
+
+```bash
 ros2 launch demos moveit_rviz.launch.py
 ```
 

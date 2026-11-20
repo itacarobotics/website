@@ -9,7 +9,7 @@ const sidebars = {
       type: 'category',
       label: 'API Reference',
       collapsed: false,
-      items: ['api/ulixpy', 'api/ulixarm_cpp'],
+      items: ['api/ulixpy', 'api/ulixarm_cpp', 'api/license'],
     },
     'ulixarm_description',
   ],

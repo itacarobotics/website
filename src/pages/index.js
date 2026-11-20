@@ -209,10 +209,10 @@ function CallToAction() {
         <Heading as="h2">Ready to start?</Heading>
         <p>Dive into the documentation for the Python and C++ APIs.</p>
         <div className={styles.buttons}>
-          <Link className="button button--secondary button--lg" to="/docs/api/ulixpy">
+          <Link className="button button--primary button--lg" to="/docs/api/ulixpy">
             Python API
           </Link>
-          <Link className="button button--secondary button--lg" to="/docs/api/ulixarm_cpp">
+          <Link className="button button--outline button--secondary button--lg" to="/docs/api/ulixarm_cpp">
             C++ API
           </Link>
         </div>

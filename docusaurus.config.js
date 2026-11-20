@@ -47,6 +47,34 @@ const config = {
 
   onBrokenLinks: 'throw',
 
+  markdown: {
+    // Community projects: serve projects/<name>/page.md at /projects/<name>/ without any front matter.
+    parseFrontMatter: async (params) => {
+      const result = await params.defaultParseFrontMatter(params);
+      if (/[\\/]projects[\\/][^\\/]+[\\/]page\.mdx?$/.test(params.filePath)) {
+        result.frontMatter.slug ??= './';
+      }
+      return result;
+    },
+  },
+
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'projects',
+        path: 'projects',
+        routeBasePath: 'projects',
+        // Each project folder becomes one sidebar entry pointing at its page.md.
+        sidebarItemsGenerator: ({defaultSidebarItemsGenerator, ...args}) =>
+          defaultSidebarItemsGenerator({
+            ...args,
+            isCategoryIndex: (doc) => doc.fileName === 'page' || args.isCategoryIndex(doc),
+          }),
+      },
+    ],
+  ],
+
   customFields: {quoteUrl},
 
   stylesheets: [
@@ -104,6 +132,7 @@ const config = {
           },
           {to: '/docs/getting-started', label: 'Getting Started', position: 'left'},
           {to: '/docs/api/ulixpy', label: 'API', position: 'left'},
+          {to: '/projects', label: 'Projects', position: 'left'},
           {href: quoteUrl, label: 'Get a quote', position: 'right', className: 'navbar-quote'},
           // {to: '/blog', label: 'Blog', position: 'left'},
           {

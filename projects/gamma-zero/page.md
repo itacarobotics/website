@@ -12,8 +12,6 @@ Ulixarm is part of the Gamma Zero robot collection and is one of the project's r
 
 Gamma Zero is a large research collaboration, co-led by Nico Bohlinger (TU Darmstadt) and Bo Ai (Stanford University).
 
-![Federico Osti](./assets/federico-osti.webp)
-
 **Federico Osti** (Technical University of Munich) is a member of the research team.
 
 ## Links

@@ -26,7 +26,7 @@ const quoteUrl = `mailto:ostifederico02@gmail.com?subject=${encodeURIComponent(Q
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Ulixarm Research Kit',
-  tagline: 'An open 6-DoF robotic arm for learning and research, programmable in Python and C++.',
+  tagline: 'A backdrivable robotic arm for teaching and research: six joints, a gripper and a depth camera, controlled from Python or C++.',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

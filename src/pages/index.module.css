@@ -22,14 +22,12 @@
   pointer-events: none;
 }
 
-/* the line drawing, with a soft glow behind it; dark mode inverts it */
+/* the line drawing; dark mode inverts it */
 .hero::after {
   content: '';
   position: absolute;
   inset: 2% 0 2% 46%;
-  background:
-    url('/img/cover.png') no-repeat center / contain,
-    radial-gradient(45% 45% at 50% 50%, var(--glow), transparent 70%);
+  background: url('/img/cover.png') no-repeat center / contain;
   pointer-events: none;
   animation: float 8s ease-in-out infinite;
 }

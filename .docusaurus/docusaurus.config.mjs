@@ -4,8 +4,8 @@
  * Modify the docusaurus.config.js file at your site's root instead.
  */
 export default {
-  "title": "Ulixarm-Research-Kit is here!",
-  "tagline": "Learning has never made so much fun",
+  "title": "Ulixarm Research Kit",
+  "tagline": "A backdrivable robotic arm for teaching and research: six joints, a gripper and a depth camera, controlled from Python or C++.",
   "favicon": "img/favicon.ico",
   "future": {
     "v4": {
@@ -34,6 +34,12 @@ export default {
   "organizationName": "itacarobotics",
   "projectName": "website",
   "onBrokenLinks": "throw",
+  "customFields": {
+    "quoteUrl": "mailto:ostifederico02@gmail.com?subject=Ulixarm%20Research%20Kit%20-%20quote%20request&body=Hello%20Itacarobotics%20team%2C%0A%0AI%20would%20like%20to%20receive%20a%20quote%20for%20the%20Ulixarm%20Research%20Kit.%0A%0AName%3A%0AOrganization%20%2F%20University%3A%0ACountry%3A%0ANumber%20of%20kits%3A%0AIntended%20use%20(teaching%2C%20research%2C%20...)%3A%0A%0AThank%20you!"
+  },
+  "stylesheets": [
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+  ],
   "i18n": {
     "defaultLocale": "en",
     "locales": [
@@ -49,19 +55,7 @@ export default {
         "docs": {
           "sidebarPath": "./sidebars.js"
         },
-        "blog": {
-          "showReadingTime": true,
-          "feedOptions": {
-            "type": [
-              "rss",
-              "atom"
-            ],
-            "xslt": true
-          },
-          "onInlineTags": "warn",
-          "onInlineAuthors": "warn",
-          "onUntruncatedBlogPosts": "warn"
-        },
+        "blog": false,
         "theme": {
           "customCss": "./src/css/custom.css"
         }
@@ -69,7 +63,7 @@ export default {
     ]
   ],
   "themeConfig": {
-    "image": "img/docusaurus-social-card.jpg",
+    "image": "img/cover.png",
     "colorMode": {
       "respectPrefersColorScheme": true,
       "defaultMode": "light",
@@ -78,15 +72,31 @@ export default {
     "navbar": {
       "title": "Itacarobotics",
       "logo": {
-        "alt": "My Site Logo",
+        "alt": "Itacarobotics logo",
         "src": "img/logo.svg"
       },
       "items": [
         {
           "type": "docSidebar",
-          "sidebarId": "tutorialSidebar",
+          "sidebarId": "docsSidebar",
           "position": "left",
-          "label": "Ulixarm-Research-Kit"
+          "label": "Docs"
+        },
+        {
+          "to": "/docs/getting-started",
+          "label": "Getting Started",
+          "position": "left"
+        },
+        {
+          "to": "/docs/api/ulixpy",
+          "label": "API",
+          "position": "left"
+        },
+        {
+          "href": "mailto:ostifederico02@gmail.com?subject=Ulixarm%20Research%20Kit%20-%20quote%20request&body=Hello%20Itacarobotics%20team%2C%0A%0AI%20would%20like%20to%20receive%20a%20quote%20for%20the%20Ulixarm%20Research%20Kit.%0A%0AName%3A%0AOrganization%20%2F%20University%3A%0ACountry%3A%0ANumber%20of%20kits%3A%0AIntended%20use%20(teaching%2C%20research%2C%20...)%3A%0A%0AThank%20you!",
+          "label": "Get a quote",
+          "position": "right",
+          "className": "navbar-quote"
         },
         {
           "href": "https://github.com/itacarobotics",
@@ -103,8 +113,24 @@ export default {
           "title": "Docs",
           "items": [
             {
-              "label": "Tutorial",
+              "label": "Introduction",
               "to": "/docs/intro"
+            },
+            {
+              "label": "Getting Started",
+              "to": "/docs/getting-started"
+            },
+            {
+              "label": "Python API",
+              "to": "/docs/api/ulixpy"
+            },
+            {
+              "label": "C++ API",
+              "to": "/docs/api/ulixarm_cpp"
+            },
+            {
+              "label": "Robot Description",
+              "to": "/docs/ulixarm_description"
             }
           ]
         },
@@ -130,6 +156,11 @@ export default {
       "copyright": "Copyright © 2026 Itacarobotics."
     },
     "prism": {
+      "additionalLanguages": [
+        "bash",
+        "cmake",
+        "powershell"
+      ],
       "theme": {
         "plain": {
           "color": "#393A34",
@@ -234,27 +265,95 @@ export default {
       },
       "darkTheme": {
         "plain": {
-          "color": "#F8F8F2",
-          "backgroundColor": "#282A36"
+          "backgroundColor": "hsl(220, 13%, 18%)",
+          "color": "hsl(220, 14%, 71%)",
+          "textShadow": "0 1px rgba(0, 0, 0, 0.3)"
         },
         "styles": [
           {
             "types": [
+              "comment",
               "prolog",
-              "constant",
-              "builtin"
+              "cdata"
             ],
             "style": {
-              "color": "rgb(189, 147, 249)"
+              "color": "hsl(220, 10%, 40%)"
             }
           },
           {
             "types": [
+              "doctype",
+              "punctuation",
+              "entity"
+            ],
+            "style": {
+              "color": "hsl(220, 14%, 71%)"
+            }
+          },
+          {
+            "types": [
+              "attr-name",
+              "class-name",
+              "maybe-class-name",
+              "boolean",
+              "constant",
+              "number",
+              "atrule"
+            ],
+            "style": {
+              "color": "hsl(29, 54%, 61%)"
+            }
+          },
+          {
+            "types": [
+              "keyword"
+            ],
+            "style": {
+              "color": "hsl(286, 60%, 67%)"
+            }
+          },
+          {
+            "types": [
+              "property",
+              "tag",
+              "symbol",
+              "deleted",
+              "important"
+            ],
+            "style": {
+              "color": "hsl(355, 65%, 65%)"
+            }
+          },
+          {
+            "types": [
+              "selector",
+              "string",
+              "char",
+              "builtin",
               "inserted",
+              "regex",
+              "attr-value"
+            ],
+            "style": {
+              "color": "hsl(95, 38%, 62%)"
+            }
+          },
+          {
+            "types": [
+              "variable",
+              "operator",
               "function"
             ],
             "style": {
-              "color": "rgb(80, 250, 123)"
+              "color": "hsl(207, 82%, 66%)"
+            }
+          },
+          {
+            "types": [
+              "url"
+            ],
+            "style": {
+              "color": "hsl(187, 47%, 55%)"
             }
           },
           {
@@ -262,66 +361,44 @@ export default {
               "deleted"
             ],
             "style": {
-              "color": "rgb(255, 85, 85)"
+              "textDecorationLine": "line-through"
             }
           },
           {
             "types": [
-              "changed"
+              "inserted"
             ],
             "style": {
-              "color": "rgb(255, 184, 108)"
+              "textDecorationLine": "underline"
             }
           },
           {
             "types": [
-              "punctuation",
-              "symbol"
+              "italic"
             ],
             "style": {
-              "color": "rgb(248, 248, 242)"
-            }
-          },
-          {
-            "types": [
-              "string",
-              "char",
-              "tag",
-              "selector"
-            ],
-            "style": {
-              "color": "rgb(255, 121, 198)"
-            }
-          },
-          {
-            "types": [
-              "keyword",
-              "variable"
-            ],
-            "style": {
-              "color": "rgb(189, 147, 249)",
               "fontStyle": "italic"
             }
           },
           {
             "types": [
-              "comment"
+              "important",
+              "bold"
             ],
             "style": {
-              "color": "rgb(98, 114, 164)"
+              "fontWeight": "bold"
             }
           },
           {
             "types": [
-              "attr-name"
+              "important"
             ],
             "style": {
-              "color": "rgb(241, 250, 140)"
+              "color": "hsl(220, 14%, 71%)"
             }
           }
         ]
       },
-      "additionalLanguages": [],
       "magicComments": [
         {
           "className": "theme-code-block-highlighted-line",
@@ -361,12 +438,10 @@ export default {
   "staticDirectories": [
     "static"
   ],
-  "customFields": {},
   "plugins": [],
   "themes": [],
   "scripts": [],
   "headTags": [],
-  "stylesheets": [],
   "clientModules": [],
   "titleDelimiter": "|",
   "noIndex": false,

@@ -1,7 +1,7 @@
 {
   "id": "intro",
   "title": "Introduction",
-  "description": "Ulixarm is an open-source 6 DOF robotic arm manipulator designed to give robotics enthusiasts and students a practical and accessible entry point into the world of robotics.",
+  "description": "Ulixarm is an open 6-DoF robotic arm with a 1-DoF parallel gripper, built to give students,",
   "source": "@site/docs/intro.mdx",
   "sourceDirName": ".",
   "slug": "/intro",
@@ -12,11 +12,13 @@
   "version": "current",
   "sidebarPosition": 1,
   "frontMatter": {
-    "sidebar_position": 1
+    "sidebar_position": 1,
+    "title": "Introduction",
+    "slug": "/intro"
   },
-  "sidebar": "tutorialSidebar",
+  "sidebar": "docsSidebar",
   "next": {
-    "title": "Tutorial",
-    "permalink": "/docs/category/tutorial"
+    "title": "Getting Started",
+    "permalink": "/docs/getting-started"
   }
 }

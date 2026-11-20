@@ -1,0 +1,26 @@
+{
+  "id": "api/ulixpy",
+  "title": "Python API (ulixpy)",
+  "description": "Vectors are NumPy arrays of length 6 (one value per joint, J1 to J6). Angles in rad, torques in Nm.",
+  "source": "@site/docs/api/ulixpy.mdx",
+  "sourceDirName": "api",
+  "slug": "/api/ulixpy",
+  "permalink": "/docs/api/ulixpy",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Python API (ulixpy)",
+    "sidebar_label": "Python (ulixpy)"
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Getting Started",
+    "permalink": "/docs/getting-started"
+  },
+  "next": {
+    "title": "C++ (ulixarm_cpp)",
+    "permalink": "/docs/api/ulixarm_cpp"
+  }
+}

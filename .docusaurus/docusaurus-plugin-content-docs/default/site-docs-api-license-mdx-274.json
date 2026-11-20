@@ -1,0 +1,26 @@
+{
+  "id": "api/license",
+  "title": "License",
+  "description": "Apache License 2.0.",
+  "source": "@site/docs/api/license.mdx",
+  "sourceDirName": "api",
+  "slug": "/api/license",
+  "permalink": "/docs/api/license",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "License",
+    "sidebar_label": "License"
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "C++ (ulixarm_cpp)",
+    "permalink": "/docs/api/ulixarm_cpp"
+  },
+  "next": {
+    "title": "Robot Description",
+    "permalink": "/docs/ulixarm_description"
+  }
+}

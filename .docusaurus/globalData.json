@@ -11,49 +11,39 @@
           "mainDocId": "intro",
           "docs": [
             {
+              "id": "api/license",
+              "path": "/docs/api/license",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "api/ulixarm_cpp",
+              "path": "/docs/api/ulixarm_cpp",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "api/ulixpy",
+              "path": "/docs/api/ulixpy",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "getting-started",
+              "path": "/docs/getting-started",
+              "sidebar": "docsSidebar"
+            },
+            {
               "id": "intro",
               "path": "/docs/intro",
-              "sidebar": "tutorialSidebar"
+              "sidebar": "docsSidebar"
             },
             {
-              "id": "tutorial/getting-started",
-              "path": "/docs/tutorial/getting-started",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial/moving-the-robot-cpp",
-              "path": "/docs/tutorial/moving-the-robot-cpp",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial/moving-the-robot-gui",
-              "path": "/docs/tutorial/moving-the-robot-gui",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial/play-with-gravity",
-              "path": "/docs/tutorial/play-with-gravity",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial/springs-and-dampers",
-              "path": "/docs/tutorial/springs-and-dampers",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial/visualizing-the-robot",
-              "path": "/docs/tutorial/visualizing-the-robot",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "/category/tutorial",
-              "path": "/docs/category/tutorial",
-              "sidebar": "tutorialSidebar"
+              "id": "ulixarm_description",
+              "path": "/docs/ulixarm_description",
+              "sidebar": "docsSidebar"
             }
           ],
           "draftIds": [],
           "sidebars": {
-            "tutorialSidebar": {
+            "docsSidebar": {
               "link": {
                 "path": "/docs/intro",
                 "label": "intro"

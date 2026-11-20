@@ -1,0 +1,26 @@
+{
+  "id": "api/ulixarm_cpp",
+  "title": "C++ API (ulixarm_cpp)",
+  "description": "Vectors are ulixarm::Matrix, one value per joint, J1 to J6).",
+  "source": "@site/docs/api/ulixarm_cpp.mdx",
+  "sourceDirName": "api",
+  "slug": "/api/ulixarm_cpp",
+  "permalink": "/docs/api/ulixarm_cpp",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "C++ API (ulixarm_cpp)",
+    "sidebar_label": "C++ (ulixarm_cpp)"
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Python (ulixpy)",
+    "permalink": "/docs/api/ulixpy"
+  },
+  "next": {
+    "title": "License",
+    "permalink": "/docs/api/license"
+  }
+}

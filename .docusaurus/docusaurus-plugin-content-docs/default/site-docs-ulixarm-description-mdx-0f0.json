@@ -1,0 +1,22 @@
+{
+  "id": "ulixarm_description",
+  "title": "Robot Description (URDF)",
+  "description": "The URDF model of the Ulixarm, with visual and collision meshes and dynamic parameters computed",
+  "source": "@site/docs/ulixarm_description.mdx",
+  "sourceDirName": ".",
+  "slug": "/ulixarm_description",
+  "permalink": "/docs/ulixarm_description",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Robot Description (URDF)",
+    "sidebar_label": "Robot Description"
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "License",
+    "permalink": "/docs/api/license"
+  }
+}

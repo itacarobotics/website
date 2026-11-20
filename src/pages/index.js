@@ -110,7 +110,7 @@ function Hero() {
         <div className={styles.heroText}>
           <span className={styles.eyebrow}>Itacarobotics · Research Kit</span>
           <Heading as="h1" className={styles.heroTitle}>
-            Learn robotics on a <span className={styles.accent}>real arm</span>.
+            Build something <span className={styles.accent}>great</span>.
           </Heading>
           <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
           <div className={styles.buttons}>

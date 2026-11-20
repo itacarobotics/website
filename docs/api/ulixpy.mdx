@@ -1,0 +1,178 @@
+---
+title: Python API (ulixpy)
+sidebar_label: Python (ulixpy)
+---
+
+# Python API: `ulixpy`
+
+```python
+from ulixpy import UlixArm, UlixArmError
+robot = UlixArm(gripper=True)
+```
+
+Vectors are NumPy arrays of length 6 (one value per joint, J1 to J6). Angles in rad, torques in Nm.
+Errors raise `UlixArmError`. Not installed yet? See [Getting Started](../getting-started.mdx#3-install-the-api).
+Source: [github.com/itacarobotics/ulixpy](https://github.com/itacarobotics/ulixpy).
+
+## Overview
+
+| Function | What it does |
+|---|---|
+| **Setup** | |
+| [`UlixArm(gripper, camera, urdf_path)`](#ulixarm) | Create the robot object and load its model |
+| [`connect(port)`](#connect) | Open the USB connection |
+| [`disconnect()`](#disconnect) | Close the connection (motors keep the last command) |
+| [`enable()`](#enable) | Power the motors on |
+| [`disable()`](#disable) | Power the motors off ⚠️ the arm falls |
+| **Motion** | |
+| [`control(q, dq, tau, kp, kd, gravity)`](#control) | Send one impedance command to the 6 joints |
+| [`hold()`](#hold) | Keep the current pose |
+| **State** | |
+| [`refresh()`](#refresh) | Read fresh motor data without moving |
+| [`get_q()`, `get_dq()`, `get_tau()`](#get_q) | Joint positions, velocities, torques |
+| [`get_tmos()`, `get_trot()`](#get_tmos) | Motor temperatures |
+| **Gripper** | |
+| [`open()`, `open_width(m)`, `open_ratio(r)`](#open) | Open the gripper |
+| [`close()`, `close(f)`](#close) | Close the gripper with a grip strength |
+
+## Setup
+
+### `UlixArm()` \{#ulixarm\}
+
+```python
+UlixArm(gripper=True, camera=False, urdf_path="")
+```
+
+Creates the robot object and loads the model used for gravity compensation. Does not talk to the
+hardware yet. Set `gripper` and `camera` to match what is mounted: the right
+[URDF](../ulixarm_description.mdx) is picked automatically. `urdf_path` overrides it.
+`camera=True` without the gripper raises an error.
+
+### `connect(port)` \{#connect\}
+
+Opens the USB connection (e.g. `"/dev/ttyACM0"`) and checks that every motor is correctly
+configured. Call it first.
+
+### `disconnect()` \{#disconnect\}
+
+Closes the connection. **The motors stay enabled and keep the last command**: call
+[`hold()`](#hold) before, so the arm stays in place.
+
+### `enable()` \{#enable\}
+
+Powers the motors on. Call it only with the arm in the **resting position**: until the first
+`control()` or `hold()`, the motors apply no holding torque.
+
+### `disable()` \{#disable\}
+
+Powers the motors off. **The arm falls under its own weight**: move it to the resting position first.
+
+## Motion
+
+### `control()` \{#control\}
+
+```python
+robot.control(q_target, dq_target, tau_target, kp, kd, gravity)
+```
+
+Sends one command to the six joints and reads back their state. Each joint behaves like a
+spring-damper pulled toward the target:
+
+```text
+tau = kp * (q_target - q) + kd * (dq_target - dq) + tau_target  [+ gravity torque]
+```
+
+| Argument | Unit | Meaning |
+|---|---|---|
+| `q_target` | rad | target positions |
+| `dq_target` | rad/s | target velocities |
+| `tau_target` | Nm | extra feedforward torque |
+| `kp` | Nm/rad | stiffness (0 = no spring) |
+| `kd` | Nm·s/rad | damping (0 = no damping) |
+| `gravity` | bool | add gravity compensation |
+
+Call it in a loop: each call is one control step. The command is rejected if a target is outside
+the joint limits, if a joint with `kp > 0` would jump more than **0.2 rad** from where it is, or if
+a motor is above 90 °C. It does not move the gripper.
+
+**Example: move joint 1 by 0.5 rad, smoothly**
+
+```python
+import numpy as np
+
+q0 = robot.get_q()
+goal = q0.copy()
+goal[0] += 0.5
+kp = np.full(6, 20.0)
+kd = np.full(6, 1.0)
+zero = np.zeros(6)
+
+for s in np.linspace(0, 1, 500):           # small steps, never > 0.2 rad
+    q = q0 + s * (goal - q0)
+    robot.control(q, zero, zero, kp, kd, True)
+```
+
+### `hold()` \{#hold\}
+
+Keeps the arm at its current pose with predefined gains. Use it after `enable()`, before
+`disconnect()` and whenever you stop sending commands. It is not monitored: if the arm is pushed
+away, nothing detects it.
+
+## State
+
+### `refresh()` \{#refresh\}
+
+Reads the latest motor data without commanding. Needed only at start-up, before the first
+`control()` (which already refreshes the state).
+
+### `get_q()`, `get_dq()`, `get_tau()` \{#get_q\}
+
+Return the joint positions [rad], velocities [rad/s] and torques [Nm] from the last feedback.
+They raise an error if the data is older than 500 ms.
+
+### `get_tmos()`, `get_trot()` \{#get_tmos\}
+
+Return the driver (MOSFET) and motor winding temperatures [°C]. Commands are rejected above
+90 °C, with a warning from 70 °C.
+
+## Gripper
+
+### `open()`, `open_width(m)`, `open_ratio(r)` \{#open\}
+
+| Call | Opening |
+|---|---|
+| `open()` | default, 80 % |
+| `open_width(m)` | `m` metres between the fingers, 0.0 to 0.090 |
+| `open_ratio(r)` | fraction, 0.0 (closed) to 1.0 (fully open) |
+
+### `close()`, `close(f)` \{#close\}
+
+Closes until the fingers meet the object, with strength `f` from 0.0 (gentle) to 1.0 (maximum).
+The default is 0.5. The motors must be enabled.
+
+**Example: pick an object**
+
+```python
+import time
+
+robot.open_width(0.06)   # 6 cm, a bit wider than the object
+time.sleep(1)
+# ... move the arm around the object with control() ...
+robot.close(0.4)         # moderate grip
+time.sleep(1)
+```
+
+The gripper functions do not block: wait (or keep calling `control()`) while the fingers move.
+
+## Limitations and known risks
+
+- **No brakes.** `disable()`, a power cut or the emergency stop make the arm fall.
+- **Motors keep the last command** after your program stops or crashes. If it was torque-only
+  (`kp = 0`), the arm is not held.
+- **No collision detection**, neither with itself nor with the environment.
+- **Gains are not checked.** High `kp`/`kd` can make the arm oscillate or move violently:
+  start low (e.g. `kp = 20`, `kd = 1`) and increase gradually.
+- **`hold()` is not a safety function**: drift is not detected.
+- The limits above are software checks, not certified safety functions. The technical manual takes
+  precedence.
+- Gripper payload is 0.3 kg; always test that the grasp is secure.

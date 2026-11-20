@@ -1,36 +1,263 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
+/* Hero ------------------------------------------------------------------ */
+.hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(
-    90deg,
-    var(--ifm-color-primary) 0%,
-    var(--ifm-color-primary-lightest) 100%
-  );
-
-  color: white;
-
-  /* background-image: url('/static/img/docusaurus-social-card.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white; */
+  min-height: min(88vh, 820px);
+  display: flex;
+  align-items: center;
+  padding: 5rem 0;
+  background:
+    radial-gradient(60% 70% at 80% 40%, rgba(203, 55, 1, 0.12), transparent 70%),
+    var(--ifm-background-color);
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+/* the line drawing; a pseudo-element so dark mode can invert it */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: -4% -2% -4% 42%;
+  background: url('/img/cover.png') no-repeat center / contain;
+  pointer-events: none;
+}
+
+[data-theme='dark'] .hero::after {
+  filter: invert(1) hue-rotate(180deg);
+  opacity: 0.85;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+}
+
+.heroText {
+  max-width: 600px;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  margin-bottom: 1.4rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary);
+  background: rgba(203, 55, 1, 0.1);
+}
+
+.heroTitle {
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2rem;
+}
+
+.accent {
+  color: var(--ifm-color-primary);
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 2rem;
 }
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.install {
+  display: inline-flex;
   align-items: center;
+  gap: 0.6rem;
+  max-width: 100%;
+  margin-top: 2rem;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  background: #1c1c1e;
+  overflow-x: auto;
+}
+
+.install code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #f5f5f5;
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+
+.copy {
+  margin-left: 0.4rem;
+  display: inline-flex;
+  padding: 0.35rem;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: transparent;
+  color: #f5f5f5;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.copy:hover {
+  border-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-lightest);
+}
+
+.prompt {
+  color: var(--ifm-color-primary-lightest);
+  font-family: var(--ifm-font-family-monospace);
+}
+
+@media (max-width: 996px) {
+  .hero {
+    min-height: auto;
+    padding: 3rem 0 22rem;
+  }
+  .hero::after {
+    inset: auto 0 0 0;
+    height: 22rem;
+  }
+}
+
+/* Stats ----------------------------------------------------------------- */
+.stats {
+  background: linear-gradient(90deg, var(--ifm-color-primary-darkest), var(--ifm-color-primary-lightest));
+  color: #fff;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.statLabel {
+  opacity: 0.85;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Sections -------------------------------------------------------------- */
+.section {
+  padding: 5rem 0;
+}
+
+.sectionAlt {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  padding: 1.6rem;
+  border-radius: 14px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-surface-color);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 10px 30px rgba(203, 55, 1, 0.12);
+}
+
+.card p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.cardIndex {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (max-width: 996px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.steps {
+  padding-left: 1.2rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.steps li {
+  margin-bottom: 1rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.steps li::marker {
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+}
+
+.codeCard {
+  min-width: 0;
+  padding: 1rem 1rem 0.2rem;
+  border-radius: 14px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+/* Call to action -------------------------------------------------------- */
+.cta {
+  padding: 4.5rem 0;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ifm-color-primary-darkest), var(--ifm-color-primary-lightest));
+}
+
+.cta h2 {
+  font-size: 2.2rem;
+  color: #fff;
+}
+
+.cta p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+}
+
+.cta .buttons {
   justify-content: center;
 }

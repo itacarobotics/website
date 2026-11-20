@@ -25,3 +25,20 @@
   --ifm-color-primary-lighter: #fd5e25;
   --ifm-color-primary-lightest: #fe7a4a;
 }
+
+/* "Get a quote" navbar button */
+.navbar-quote {
+  margin-left: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: #fff !important;
+  background: var(--ifm-color-primary);
+}
+.navbar-quote:hover {
+  background: var(--ifm-color-primary-darker);
+}
+/* hide the external-link arrow on the mailto button */
+.navbar-quote svg {
+  display: none;
+}

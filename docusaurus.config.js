@@ -8,11 +8,25 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+// Prefilled "Get a quote" email, used by the navbar and the home page.
+const QUOTE_SUBJECT = 'Ulixarm Research Kit - quote request';
+const QUOTE_BODY = `Hello Itacarobotics team,
+
+I would like to receive a quote for the Ulixarm Research Kit.
+
+Name:
+Organization / University:
+Country:
+Number of kits:
+Intended use (teaching, research, ...):
+
+Thank you!`;
+const quoteUrl = `mailto:ostifederico02@gmail.com?subject=${encodeURIComponent(QUOTE_SUBJECT)}&body=${encodeURIComponent(QUOTE_BODY)}`;
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Ulixarm-Research-Kit is here!',
-  // tagline: "The research arm you've been looking for.",
-  tagline: "Learning has never made so much fun",
+  title: 'Ulixarm Research Kit',
+  tagline: 'An open 6-DoF robotic arm for learning and research, programmable in Python and C++.',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -32,6 +46,8 @@ const config = {
   projectName: 'website', // Usually your repo name.
 
   onBrokenLinks: 'throw',
+
+  customFields: {quoteUrl},
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -53,21 +69,7 @@ const config = {
           // editUrl:
           //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -79,23 +81,26 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/cover.png',
       colorMode: {
         respectPrefersColorScheme: true,
       },
       navbar: {
         title: 'Itacarobotics',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Itacarobotics logo',
           src: 'img/logo.svg',
         },
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'docsSidebar',
             position: 'left',
-            label: 'Ulixarm-Research-Kit',
+            label: 'Docs',
           },
+          {to: '/docs/getting-started', label: 'Getting Started', position: 'left'},
+          {to: '/docs/api/ulixpy', label: 'API', position: 'left'},
+          {href: quoteUrl, label: 'Get a quote', position: 'right', className: 'navbar-quote'},
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/itacarobotics',
@@ -110,10 +115,11 @@ const config = {
           {
             title: 'Docs',
             items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
+              {label: 'Introduction', to: '/docs/intro'},
+              {label: 'Getting Started', to: '/docs/getting-started'},
+              {label: 'Python API', to: '/docs/api/ulixpy'},
+              {label: 'C++ API', to: '/docs/api/ulixarm_cpp'},
+              {label: 'Robot Description', to: '/docs/ulixarm_description'},
             ],
           },
           {
@@ -142,6 +148,7 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Itacarobotics.`,
       },
       prism: {
+        additionalLanguages: ['bash', 'cmake', 'powershell'],
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },

@@ -8,20 +8,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-// Prefilled "Get a quote" email, used by the navbar and the home page.
-const QUOTE_SUBJECT = 'Ulixarm Research Kit - quote request';
-const QUOTE_BODY = `Hello Itacarobotics team,
-
-I would like to receive a quote for the Ulixarm Research Kit.
-
-Name:
-Organization / University:
-Country:
-Number of kits:
-Intended use (teaching, research, ...):
-
-Thank you!`;
-const quoteUrl = `mailto:ostifederico02@gmail.com?subject=${encodeURIComponent(QUOTE_SUBJECT)}&body=${encodeURIComponent(QUOTE_BODY)}`;
+// "Get in touch" email link, used by the navbar.
+const quoteUrl = 'mailto:ostifederico02@gmail.com';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -133,7 +121,7 @@ const config = {
           {to: '/docs/getting-started', label: 'Getting Started', position: 'left'},
           {to: '/docs/api/ulixpy', label: 'API', position: 'left'},
           {to: '/projects', label: 'Projects', position: 'left'},
-          {href: quoteUrl, label: 'Get a quote', position: 'right', className: 'navbar-quote'},
+          {href: quoteUrl, label: 'Get in touch', position: 'right', className: 'navbar-quote'},
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/itacarobotics',
